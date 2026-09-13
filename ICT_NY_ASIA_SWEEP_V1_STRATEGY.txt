@@ -1,0 +1,72 @@
+ICT NEW YORK ASIA LIQUIDITY SWEEP M5 V1
+
+SYMBOLS:
+EURUSD, GBPUSD, XAUUSD and NAS100.
+
+TIMEFRAMES:
+Use only closed H1 candles for directional Bias. Execute the complete setup and
+entry on M5. No other timeframe is used.
+
+H1 BIAS:
+Calculate EMA20 and EMA50 from closed H1 candle closes. LONG is allowed only
+when the latest closed H1 candle closes above EMA20 and EMA20 is above EMA50.
+SHORT is allowed only when the latest closed H1 candle closes below EMA20 and
+EMA20 is below EMA50. Otherwise no new setup is allowed. Lock the Bias at the
+close of the liquidity-sweep M5 candle.
+
+ASIA LIQUIDITY:
+Use only the current Europe/Kyiv trading day's Asia High and Asia Low. Build
+the Asia range from closed M5 candles opening from 03:00 until 10:00
+Europe/Kyiv. Other liquidity pools do not qualify.
+
+NEW YORK WINDOW:
+New setups, signals and LIMIT fills are allowed only from 09:30 until 11:00
+America/New_York. The IANA timezone handles daylight-saving time causally. Any
+unfilled order is cancelled at 11:00 America/New_York.
+
+LIQUIDITY SWEEP:
+LONG requires an M5 candle to trade below the Asia Low and close back above the
+Asia Low while the locked H1 Bias is bullish. SHORT requires an M5 candle to
+trade above the Asia High and close back below the Asia High while the locked
+H1 Bias is bearish. A candle sweeping both Asia boundaries is ambiguous and
+cannot start a setup.
+
+M5 MARKET STRUCTURE SHIFT:
+After the valid sweep, LONG requires an M5 candle close above the latest
+causally confirmed M5 fractal swing high. SHORT requires an M5 candle close
+below the latest causally confirmed M5 fractal swing low. A confirmed swing
+uses exactly two candles on the left and two already-closed candles on the
+right. The breaking close must cross the swing level from the opposite side.
+Search the latest confirmed swing within the preceding 50 M5 candles.
+
+DISPLACEMENT AND NEW FVG:
+After MSS, the first qualifying direction-compatible standard three-candle M5
+FVG owns the setup. A bullish FVG is the gap between candle one high and candle
+three low. A bearish FVG is the gap between candle one low and candle three
+high. The middle candle must be in the trade direction, must not precede the
+MSS candle, must have a real body at least 1.0 times causal M5 ATR(14), and its
+real body must be at least 60% of its full high-low range. FVGs completed before
+the sweep are invalid for entry.
+
+ENTRY:
+LIMIT orders only. Place the order at exactly 50% of the first qualifying new
+M5 FVG. The order becomes active on the next M5 candle after the FVG completes.
+Do not chase price. Cancel an unfilled order at 11:00 America/New_York.
+
+STOP LOSS:
+Stop Loss is STRUCTURE. LONG places Stop Loss one minimum symbol tick below the
+liquidity-sweep low. SHORT places Stop Loss one minimum symbol tick above the
+liquidity-sweep high. The all-in risk calculation includes spread, commission
+and slippage.
+
+TAKE PROFIT:
+Risk reward is exactly 2.0. Take Profit is exactly 2R from the actual LIMIT
+entry and final Stop Loss distance.
+
+RISK:
+Risk exactly 0.50% of account balance per trade using BALANCE_PERCENT sizing.
+Maximum open positions: 2. Maximum open positions per symbol: 1. Maximum one
+completed entry per America/New_York trading session per symbol. Planned
+combined open risk is at most 1.00%.
+
+Only when every required condition passes is a trade allowed.

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VELMONTAIRE — Sign in</title>
+  <link rel="stylesheet" href="/frontend/auth/styles.css">
+</head>
+
+<body>
+  <main class="auth">
+
+    <section class="auth-visual">
+      <a class="brand" href="/">
+        <div class="mark">
+          <span>M</span>
+        </div>
+        VELMONTAIRE
+      </a>
+
+      <h2>
+        Operate your strategy with
+        <em>controlled execution.</em>
+      </h2>
+
+      <div class="visual-meta">
+        <span>IMMUTABLE VERSIONS</span>
+        <span>FAIL-CLOSED SAFETY</span>
+        <span>PAPER → LIVE</span>
+      </div>
+    </section>
+
+    <section class="auth-pane">
+      <div class="authbox">
+
+        <div class="eyebrow">
+          Secure workspace access
+        </div>
+
+        <h1>Welcome back.</h1>
+
+        <p class="sub">
+          Sign in to your VELMONTAIRE operator workspace.
+        </p>
+
+        <form
+          id="auth-form"
+          data-mode="login"
+          autocomplete="off"
+          novalidate
+        >
+
+          <div class="field">
+            <label for="velmontaire-login-email">
+              Email
+            </label>
+
+            <input
+              id="velmontaire-login-email"
+              name="email"
+              type="email"
+              autocomplete="off"
+              autocapitalize="none"
+              spellcheck="false"
+              required
+              placeholder="name@example.com"
+              value=""
+            >
+          </div>
+
+          <div class="field">
+            <label for="velmontaire-login-password">
+              Password
+            </label>
+
+            <input
+              id="velmontaire-login-password"
+              name="password"
+              type="password"
+              autocomplete="off"
+              minlength="10"
+              required
+              placeholder="••••••••••••"
+              value=""
+            >
+          </div>
+
+          <button
+            class="btn"
+            type="submit"
+          >
+            Sign in
+          </button>
+
+        </form>
+
+        <p
+          id="auth-message"
+          class="sub"
+        ></p>
+
+        <p class="switch">
+          New to VELMONTAIRE?
+          <a href="/register">
+            Create account
+          </a>
+        </p>
+
+        <p class="secure-note">
+          Session authority remains server-side.
+          Credentials and execution permissions are not stored in browser storage.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/frontend/auth/auth.js"></script>
+</body>
+</html>

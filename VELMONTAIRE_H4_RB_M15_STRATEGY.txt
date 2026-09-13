@@ -1,0 +1,69 @@
+VELMONTAIRE FX FVG REJECTION BLOCK IFVG-FVG
+
+SYMBOLS:
+AUDUSD and EURUSD.
+
+TIMEFRAMES:
+Execute entries on M15. Analyze directional order flow, FVG interaction,
+and the Rejection Block on H4.
+
+H4 DIRECTION AND CONTEXT:
+Both LONG and SHORT entries are allowed. H4 order flow follows the latest
+confirmed structural Break of Structure. LONG requires an H4 candle close
+above a confirmed swing high; its latest confirmed protected swing low must
+remain unbroken by a later H4 candle close. SHORT requires the exact mirror:
+an H4 candle close below a confirmed swing low while the protected swing high
+remains unbroken. Simultaneous HH plus HL or LH plus LL is not required.
+
+Only a fresh direction-compatible H4 Fair Value Gap is valid. A bullish FVG
+is the price gap between candle one high and candle three low. A bearish FVG
+is the price gap between candle one low and candle three high. The middle
+candle does not need a special body-size filter.
+
+H4 FIRST TOUCH AND REJECTION BLOCK:
+Only the first touch of the fresh H4 FVG is eligible. The first-touch H4
+candle itself must be a direction-compatible Rejection Block. For a bullish
+setup, its wick must enter the bullish FVG while both the candle open and
+close remain above the FVG upper boundary. Its lower wick must be at least
+2.0 times its real body and at least 50% of the full candle range. For a
+bearish setup, apply the exact mirror using the upper wick and a candle body
+below the bearish FVG lower boundary. If the first touch does not satisfy the
+Rejection Block rule, that H4 FVG is consumed; later touches are invalid.
+
+The valid H4 FVG plus Rejection Block context allows the M15 FVG inversion to
+occur during the next 16 closed M15 candles, which is four hours. Only one
+trade may be taken from one H4 FVG plus Rejection Block context.
+
+M15 ENTRY MODEL:
+After the valid H4 context, LONG requires a bearish M15 FVG to invert by an
+M15 candle close above its far boundary. SHORT requires a bullish M15 FVG to
+invert by an M15 candle close below its far boundary. This creates the IFVG.
+
+Within the next 16 closed M15 candles after the inversion, a new standard
+three-candle M15 FVG in the intended direction must form. The new FVG may
+form anywhere; it does not need to be inside or overlap the IFVG. It must be
+completed strictly after the inversion candle, so one candle cannot create
+both stages. The valid inversion locks the setup, so this independent
+four-hour post-inversion window may finish after the original H4 inversion
+window. No retest or extra candle confirmation is required.
+
+ENTRY:
+MARKET orders only. Enter immediately after the candle completing the new
+directional M15 FVG closes. In causal bar simulation, fill at the next M15
+candle open. Trading is allowed around the clock with no session filter.
+
+STOP LOSS:
+Stop Loss is STRUCTURE. Place it beyond the farther protective boundary of
+the M15 IFVG and the new M15 entry FVG, plus a 1 pip structural buffer. The
+all-in risk calculation must also include spread, commission, and slippage.
+
+TAKE PROFIT:
+Risk reward is 2.0. Take Profit is exactly 2R from the actual MARKET entry
+and final Stop Loss distance.
+
+RISK:
+Risk exactly 1.0% of account balance per trade using BALANCE_PERCENT sizing.
+Maximum open positions: 2. Maximum open positions per symbol: 1. There is no
+daily trade cap.
+
+Only when every required condition passes is a trade allowed.

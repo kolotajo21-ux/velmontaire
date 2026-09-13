@@ -1,0 +1,55 @@
+VELMONTAIRE NEW YORK ASIA SWEEP M5 IFVG-FVG
+
+SYMBOLS:
+EURUSD, GBPUSD, NAS100 and SPX500.
+
+TIMEFRAMES:
+Execute and analyze the complete setup on M5.
+
+LIQUIDITY SOURCE:
+Use only the current Europe/Kyiv trading day's Asia High and Asia Low. Build
+the Asia range from closed M5 candles opening from 03:00 until 10:00
+Europe/Kyiv. Previous Day High/Low and other liquidity levels do not qualify.
+
+NEW YORK ENTRY WINDOW:
+New entries are allowed only from 09:30 until 11:00 America/New_York. This is
+the first 90 minutes after the New York cash open and is a hard entry filter.
+Using the IANA New York timezone keeps daylight-saving changes causal. A
+position opened before 11:00 remains open until Stop Loss or Take Profit.
+
+LIQUIDITY SWEEP:
+Both LONG and SHORT entries are allowed. LONG requires an M5 candle to trade
+below the Asia Low and close back above the Asia Low. SHORT requires an M5
+candle to trade above the Asia High and close back below the Asia High. A
+candle that sweeps both boundaries is ambiguous and cannot start a setup.
+
+M5 ENTRY MODEL:
+After the valid sweep and close back inside the Asia range, an opposing
+standard three-candle M5 FVG must form and then invert by a candle close beyond
+its far boundary. LONG requires a bearish FVG to invert by a close above its
+upper boundary. SHORT requires a bullish FVG to invert by a close below its
+lower boundary. The inversion must occur no later than 12 closed M5 candles
+after the sweep.
+
+Within the next 6 closed M5 candles after the inversion, a new standard
+three-candle M5 FVG in the intended direction must form. It must complete
+strictly after the inversion candle. Enter MARKET immediately after the candle
+that completes the new directional FVG closes; causal simulation fills at the
+next M5 candle open. Do not wait for a retest or additional confirmation.
+
+STOP LOSS:
+Stop Loss is STRUCTURE. For LONG, place it below the liquidity-sweep low. For
+SHORT, place it above the liquidity-sweep high. Add a 1 pip structural buffer.
+The all-in risk calculation must include spread, commission and slippage.
+
+TAKE PROFIT:
+Risk reward is 2.0. Take Profit is exactly 2R from the actual MARKET entry and
+final Stop Loss distance.
+
+RISK:
+Risk exactly 0.35% of account balance per trade using BALANCE_PERCENT sizing.
+Maximum open positions: 2. Maximum open positions per symbol: 1. Maximum one
+completed entry per Europe/Kyiv trading day per symbol. Planned combined open
+risk is at most 0.70%.
+
+Only when every required condition passes is a trade allowed.

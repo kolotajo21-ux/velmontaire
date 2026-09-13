@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>VELMONTAIRE — Official Documentation</title>
+  <link rel="stylesheet" href="/frontend/public/styles.css">
+</head>
+<body class="docs-body">
+
+<div class="topline">
+  <div>★ <strong data-docs-i18n="top.strong">Official VELMONTAIRE Documentation.</strong> <span data-docs-i18n="top.copy">Product, setup, runtime and safety reference.</span></div>
+  <div class="topline-right">
+    <span><i></i> <span data-docs-i18n="top.status">All Systems Operational</span></span>
+    <a href="/pricing" data-docs-i18n="nav.pricing">Pricing</a>
+    <a href="/support" data-docs-i18n="nav.support">Support</a>
+  </div>
+</div>
+
+<header class="nav docs-nav">
+  <a class="brand" href="/">
+    <span class="logo-mark"><span>M</span></span>
+    <span>VELMONTAIRE</span>
+  </a>
+
+  <nav class="navlinks">
+    <a href="/product" data-docs-i18n="nav.product">Product</a>
+    <a href="/workflow" data-docs-i18n="nav.workflow">Workflow</a>
+    <a href="/controls" data-docs-i18n="nav.controls">Controls</a>
+    <a href="/safety" data-docs-i18n="nav.safety">Safety</a>
+    <a class="active" href="/docs" data-docs-i18n="nav.docs">Docs</a>
+  </nav>
+
+  <div class="nav-actions">
+    <div class="language-switcher" id="docs-language-switcher">
+      <button class="language-button" id="docs-language-button" type="button" aria-haspopup="true" aria-expanded="false">
+        <span class="language-globe">◎</span>
+        <span id="docs-language-current">EN</span>
+        <span class="language-chevron">⌄</span>
+      </button>
+      <div class="language-menu" id="docs-language-menu" hidden>
+        <button type="button" data-docs-language="en"><span>EN</span><b>English</b></button>
+        <button type="button" data-docs-language="ru"><span>RU</span><b>Русский</b></button>
+        <button type="button" data-docs-language="uk"><span>UA</span><b>Українська</b></button>
+      </div>
+    </div>
+
+    <a class="nav-signin" href="/login" data-docs-i18n="nav.signin">SIGN IN</a>
+    <a class="btn gold nav-primary" href="/register"><span data-docs-i18n="nav.start">START BUILDING</span> →</a>
+  </div>
+</header>
+
+<div class="docs-shell">
+  <aside class="docs-sidebar">
+    <div class="docs-sidebar-title" data-docs-i18n="sidebar.title">DOCUMENTATION</div>
+    <nav>
+      <a class="active" href="#overview" data-docs-i18n="sidebar.overview">Overview</a>
+      <a href="#quick-start" data-docs-i18n="sidebar.quick">Quick Start</a>
+      <a href="#strategy" data-docs-i18n="sidebar.strategy">Strategy Builder</a>
+      <a href="#accounts" data-docs-i18n="sidebar.accounts">Account & Prop Rules</a>
+      <a href="#mt5" data-docs-i18n="sidebar.mt5">Connect MT5</a>
+      <a href="#backtest" data-docs-i18n="sidebar.backtest">Backtest</a>
+      <a href="#paper-live" data-docs-i18n="sidebar.runtime">PAPER → LIVE</a>
+      <a href="#safety" data-docs-i18n="sidebar.safety">Safety & Recovery</a>
+      <a href="#plans" data-docs-i18n="sidebar.plans">Plans</a>
+      <a href="#troubleshooting" data-docs-i18n="sidebar.trouble">Troubleshooting</a>
+    </nav>
+
+    <div class="docs-sidebar-help">
+      <span data-docs-i18n="sidebar.need">Need help?</span>
+      <a href="/support" data-docs-i18n="sidebar.support">Open Support Center →</a>
+    </div>
+  </aside>
+
+  <main class="docs-content">
+    <section id="overview" class="docs-hero">
+      <div class="section-kicker" data-docs-i18n="overview.kicker">OFFICIAL DOCUMENTATION</div>
+      <h1 data-docs-i18n="overview.title">VELMONTAIRE product documentation</h1>
+      <p data-docs-i18n="overview.copy">This is the official product reference for creating a strategy, connecting an account, validating it and moving safely from PAPER to LIVE.</p>
+
+      <div class="docs-callout">
+        <b data-docs-i18n="overview.rule.title">The main product rule</b>
+        <p data-docs-i18n="overview.rule.copy">Strategy logic, account rules and execution authority are separate. A strategy does not receive LIVE authority just because it was created successfully.</p>
+      </div>
+    </section>
+
+    <section id="quick-start" class="docs-section">
+      <div class="docs-number">01</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="quick.kicker">QUICK START</div>
+        <h2 data-docs-i18n="quick.title">Recommended setup order</h2>
+        <p data-docs-i18n="quick.copy">For a new user, follow these steps in this exact order. This avoids configuration being scattered across the workspace.</p>
+
+        <div class="docs-steps">
+          <a href="/dashboard/billing"><span>1</span><div><b data-docs-i18n="quick.1.title">Choose a plan</b><p data-docs-i18n="quick.1.copy">CORE for building/testing. PRO for Prop + LIVE. ELITE for higher limits.</p></div></a>
+          <a href="/dashboard/prop-rules"><span>2</span><div><b data-docs-i18n="quick.2.title">Choose account rules</b><p data-docs-i18n="quick.2.copy">Personal account, CFD Prop or Futures Prop.</p></div></a>
+          <a href="/dashboard/mt5"><span>3</span><div><b data-docs-i18n="quick.3.title">Connect MT5</b><p data-docs-i18n="quick.3.copy">Use credentials for the exact account you want VELMONTAIRE to operate.</p></div></a>
+          <a href="/dashboard/strategy"><span>4</span><div><b data-docs-i18n="quick.4.title">Create the strategy</b><p data-docs-i18n="quick.4.copy">Describe → clarify → review → approve an immutable version.</p></div></a>
+          <a href="/dashboard/backtest"><span>5</span><div><b data-docs-i18n="quick.5.title">Backtest</b><p data-docs-i18n="quick.5.copy">Validate the exact version before runtime use.</p></div></a>
+          <a href="/dashboard/paper"><span>6</span><div><b data-docs-i18n="quick.6.title">PAPER first</b><p data-docs-i18n="quick.6.copy">Run the production execution path without LIVE authority.</p></div></a>
+          <a href="/dashboard/live"><span>7</span><div><b data-docs-i18n="quick.7.title">Authorize LIVE</b><p data-docs-i18n="quick.7.copy">Only after connection, strategy version and safety prerequisites are verified.</p></div></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="strategy" class="docs-section">
+      <div class="docs-number">02</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="strategy.kicker">STRATEGY BUILDER</div>
+        <h2 data-docs-i18n="strategy.title">Natural language → structured strategy</h2>
+        <p data-docs-i18n="strategy.copy">Write the trading system normally. VELMONTAIRE parses known concepts, fills structured controls and asks for clarification where a rule is ambiguous or missing.</p>
+
+        <div class="docs-grid-2">
+          <div class="docs-card">
+            <b data-docs-i18n="strategy.known.title">Known rule</b>
+            <p data-docs-i18n="strategy.known.copy">Example: Order Block, FVG, CHOCH, liquidity sweep, RSI or EMA can map directly to existing capabilities.</p>
+          </div>
+          <div class="docs-card">
+            <b data-docs-i18n="strategy.unknown.title">Unknown / custom rule</b>
+            <p data-docs-i18n="strategy.unknown.copy">VELMONTAIRE must ask what makes the condition true. It must not silently guess the meaning.</p>
+          </div>
+        </div>
+
+        <div class="docs-callout warn">
+          <b data-docs-i18n="strategy.immutable.title">Approval creates an immutable version</b>
+          <p data-docs-i18n="strategy.immutable.copy">If you change a confirmed rule later, that should become a new strategy version instead of rewriting historical behavior.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="accounts" class="docs-section">
+      <div class="docs-number">03</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="accounts.kicker">ACCOUNT ENVIRONMENT</div>
+        <h2 data-docs-i18n="accounts.title">Personal account vs Prop Firm</h2>
+
+        <div class="docs-grid-2">
+          <div class="docs-card">
+            <b data-docs-i18n="accounts.personal.title">Personal account</b>
+            <p data-docs-i18n="accounts.personal.copy">Select Personal when the account is your own broker account and there are no prop-specific drawdown, consistency or news rules.</p>
+          </div>
+          <div class="docs-card highlighted">
+            <b data-docs-i18n="accounts.prop.title">Prop Firm account</b>
+            <p data-docs-i18n="accounts.prop.copy">Select the firm, program, phase/stage and account size before execution. These rules are account policy and remain separate from strategy logic.</p>
+          </div>
+        </div>
+
+        <h3 data-docs-i18n="accounts.prop.flow.title">For a prop account</h3>
+        <div class="docs-inline-flow">
+          <span data-docs-i18n="accounts.flow.1">Prop Firm</span><i>→</i>
+          <span data-docs-i18n="accounts.flow.2">Program</span><i>→</i>
+          <span data-docs-i18n="accounts.flow.3">Phase / Stage</span><i>→</i>
+          <span data-docs-i18n="accounts.flow.4">Account Size</span><i>→</i>
+          <span data-docs-i18n="accounts.flow.5">MT5 Credentials</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="mt5" class="docs-section">
+      <div class="docs-number">04</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="mt5.kicker">MT5 CONNECTION</div>
+        <h2 data-docs-i18n="mt5.title">How a user connects the bot to an account</h2>
+        <p data-docs-i18n="mt5.copy">The website does not need the MetaTrader desktop password stored in the browser. The user submits the trading account connection to the server-side broker boundary.</p>
+
+        <div class="docs-table">
+          <div class="docs-row head"><span data-docs-i18n="mt5.field">Field</span><span data-docs-i18n="mt5.where">Where to get it</span><span data-docs-i18n="mt5.example">Example</span></div>
+          <div class="docs-row"><span data-docs-i18n="mt5.login">MT5 Login</span><span data-docs-i18n="mt5.login.where">Broker / prop dashboard / MT5 account details</span><span>12345678</span></div>
+          <div class="docs-row"><span data-docs-i18n="mt5.server">MT5 Server</span><span data-docs-i18n="mt5.server.where">Must match the exact server shown by broker/prop firm</span><span>FundingPips-SIM1</span></div>
+          <div class="docs-row"><span data-docs-i18n="mt5.password">Trading Password</span><span data-docs-i18n="mt5.password.where">The password authorized to trade that account</span><span>••••••••</span></div>
+        </div>
+
+        <div class="docs-callout">
+          <b data-docs-i18n="mt5.prop.title">Connecting a prop account</b>
+          <p data-docs-i18n="mt5.prop.copy">Use the MT5 credentials issued for that exact challenge or funded account. Do not connect a different MT5 account while another prop policy is selected.</p>
+        </div>
+
+        <p class="docs-action-line"><a class="btn gold" href="/dashboard/mt5" data-docs-i18n="mt5.cta">OPEN MT5 CONNECTION →</a></p>
+      </div>
+    </section>
+
+    <section id="backtest" class="docs-section">
+      <div class="docs-number">05</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="backtest.kicker">BACKTEST</div>
+        <h2 data-docs-i18n="backtest.title">Validate the exact strategy version</h2>
+        <p data-docs-i18n="backtest.copy">Backtests should use a specific immutable strategy version plus explicit symbol, timeframe, dates, starting balance, spread, commission and slippage assumptions.</p>
+
+        <div class="docs-checklist">
+          <span data-docs-i18n="backtest.c1">Exact strategy version</span>
+          <span data-docs-i18n="backtest.c2">Symbol + timeframe</span>
+          <span data-docs-i18n="backtest.c3">Date range</span>
+          <span data-docs-i18n="backtest.c4">Spread / commission / slippage</span>
+          <span data-docs-i18n="backtest.c5">Equity curve + trade audit</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="paper-live" class="docs-section">
+      <div class="docs-number">06</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="runtime.kicker">RUNTIME</div>
+        <h2 data-docs-i18n="runtime.title">PAPER before LIVE</h2>
+
+        <div class="docs-grid-2">
+          <div class="docs-card">
+            <b>PAPER</b>
+            <p data-docs-i18n="runtime.paper">Runs the guarded runtime path without granting LIVE execution authority. Use it to verify runtime behavior before real money.</p>
+          </div>
+          <div class="docs-card highlighted">
+            <b>LIVE</b>
+            <p data-docs-i18n="runtime.live">Requires explicit authorization and verified prerequisites such as approved strategy version, broker connection and safety state.</p>
+          </div>
+        </div>
+
+        <div class="docs-callout warn">
+          <b data-docs-i18n="runtime.warning.title">LIVE is not an automatic upgrade from PAPER</b>
+          <p data-docs-i18n="runtime.warning.copy">The runtime should fail closed if required authorization, connection state or recovery state is uncertain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety" class="docs-section">
+      <div class="docs-number">07</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="safety.kicker">SAFETY & RECOVERY</div>
+        <h2 data-docs-i18n="safety.title">What the production safety layer protects</h2>
+
+        <div class="docs-grid-3">
+          <div class="docs-card"><b data-docs-i18n="safety.1.title">Fail closed</b><p data-docs-i18n="safety.1.copy">Unknown or invalid state blocks new execution instead of guessing.</p></div>
+          <div class="docs-card"><b data-docs-i18n="safety.2.title">Crash recovery</b><p data-docs-i18n="safety.2.copy">State can be restored from durable checkpoints and event history.</p></div>
+          <div class="docs-card"><b data-docs-i18n="safety.3.title">Duplicate protection</b><p data-docs-i18n="safety.3.copy">The same market input should not advance the same sequence twice.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans" class="docs-section">
+      <div class="docs-number">08</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="plans.kicker">PLANS</div>
+        <h2 data-docs-i18n="plans.title">How to understand CORE, PRO and ELITE</h2>
+
+        <div class="docs-table plans-table">
+          <div class="docs-row head"><span data-docs-i18n="plans.plan">Plan</span><span data-docs-i18n="plans.best">Best for</span><span data-docs-i18n="plans.key">Key difference</span></div>
+          <div class="docs-row"><span>CORE · $29/mo</span><span data-docs-i18n="plans.core.best">Building and testing</span><span data-docs-i18n="plans.core.key">No prop rules, no LIVE</span></div>
+          <div class="docs-row highlighted-row"><span>PRO · $49/mo</span><span data-docs-i18n="plans.pro.best">Normal full product</span><span data-docs-i18n="plans.pro.key">Prop + LIVE + 3 brokers / 3 LIVE bots</span></div>
+          <div class="docs-row"><span>ELITE · $89/mo</span><span data-docs-i18n="plans.elite.best">Higher operating limits</span><span data-docs-i18n="plans.elite.key">10 brokers / 10 LIVE bots + priority support</span></div>
+        </div>
+
+        <div class="docs-callout">
+          <b data-docs-i18n="plans.rule.title">Simple choice</b>
+          <p data-docs-i18n="plans.rule.copy">If the user needs a prop account or LIVE execution, PRO is the normal starting plan. ELITE is primarily for higher limits.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting" class="docs-section">
+      <div class="docs-number">09</div>
+      <div>
+        <div class="section-kicker" data-docs-i18n="trouble.kicker">TROUBLESHOOTING</div>
+        <h2 data-docs-i18n="trouble.title">Common problems</h2>
+
+        <div class="docs-faq">
+          <details>
+            <summary data-docs-i18n="trouble.login.q">I was logged out. Is my bot still authorized?</summary>
+            <p data-docs-i18n="trouble.login.a">Website session authentication and LIVE execution authority are separate concerns. Re-authenticate to inspect current runtime state.</p>
+          </details>
+          <details>
+            <summary data-docs-i18n="trouble.mt5.q">MT5 test fails</summary>
+            <p data-docs-i18n="trouble.mt5.a">Check the exact login, server spelling and trading password. For a prop account, confirm you are using credentials for the selected challenge/funded account.</p>
+          </details>
+          <details>
+            <summary data-docs-i18n="trouble.prop.q">My prop firm rules are not shown</summary>
+            <p data-docs-i18n="trouble.prop.a">Choose the account environment first. If the firm/program is not supported, submit it through the Capability Lab / Support flow rather than guessing policy.</p>
+          </details>
+          <details>
+            <summary data-docs-i18n="trouble.live.q">LIVE cannot start</summary>
+            <p data-docs-i18n="trouble.live.a">Check strategy approval, verified broker connection, plan entitlement, explicit confirmation and Safety state. LIVE should remain blocked if any prerequisite is unresolved.</p>
+          </details>
+        </div>
+
+        <p class="docs-action-line"><a class="btn ghost" href="/support" data-docs-i18n="trouble.cta">OPEN SUPPORT CENTER →</a></p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="/frontend/public/docs_i18n.js"></script>
+</body>
+</html>

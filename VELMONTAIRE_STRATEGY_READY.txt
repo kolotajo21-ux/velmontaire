@@ -1,0 +1,64 @@
+VELMONTAIRE — EXECUTABLE TRADING STRATEGY
+
+SYMBOLS:
+EURUSD. The DXY broker symbol used for USD context is DXY. If native DXY
+history is unavailable, the backtest engine uses its six-pair SYNTHETIC_DXY
+directional proxy.
+
+H4 DIRECTION:
+Determine direction using confirmed H4 Order Flow or market structure. If H4
+is bullish, only LONG trades are allowed. If H4 is bearish, only SHORT trades
+are allowed. A trade against H4 direction is forbidden.
+
+H4/H1 POI:
+Use a direction-compatible H4 or H1 Fair Value Gap, Order Block, or liquidity
+area. Price must react from that POI.
+
+DXY CONTEXT:
+For USD-related pairs, DXY H4 context is mandatory confirmation and is never a
+standalone entry signal. For EURUSD, a same-direction DXY signal contradicts
+the trade and blocks it; neutral DXY does not contradict it.
+
+TRADING WINDOW:
+16:30–18:30 Europe/Kyiv is preferred only, not a hard session filter.
+
+EXECUTION TIMEFRAME:
+M15.
+
+SETUP:
+H4 direction -> H4/H1 POI -> DXY context -> M15 reaction -> strong directional
+M15 displacement -> FVG or IFVG confirmation -> entry -> structural SL ->
+session-liquidity TP -> risk validation.
+
+ENTRY MODEL:
+Both MARKET and LIMIT are supported and ATR(14) on M15 selects the branch.
+The M15 displacement candle that created the FVG is valid only when its range
+is at least 1.0 × ATR(14). If its range is below 1.0 × ATR(14), reject the
+setup because displacement is not strong. If its range is at least 1.0 ×
+ATR(14) but less than 1.5 × ATR(14), wait for the M15 confirmation candle to
+close and enter MARKET immediately after that close.
+If that range is greater than or equal to 1.5 × ATR(14), wait for the first
+retracement into the newly created M15 FVG and enter LIMIT on its first tap from
+the retracement side. Do not use the 50% midpoint. If no first tap occurs, do
+not open a trade.
+
+STOP LOSS:
+Stop Loss is STRUCTURE. Place it beyond the M15 FVG used for entry. If an Order
+Block is the true invalidation point, place it beyond the Order Block. Never
+reduce the stop artificially to improve Risk/Reward.
+
+TAKE PROFIT:
+Take Profit uses the nearest relevant completed-session liquidity or previous
+day high/low in the trade direction. Base target is 2R. Minimum acceptable
+Risk/Reward is 1.5R. If the nearest valid liquidity is below 1.5R, no trade is
+allowed. If it is between 1.5R and 2R, target that liquidity. If it is at or
+beyond 2R, Take Profit is exactly 2R. Take Profit must never exceed 2R.
+
+RISK:
+Risk exactly 1% of account balance per trade using BALANCE_PERCENT sizing.
+Calculate lot automatically from balance, entry, stop, stop distance, pip size,
+and pip value. Maximum daily loss: 1%. Maximum weekly loss: 3%. Loss limits use
+realized P/L against the balance at the start of each Europe/Kyiv day and ISO
+week. Maximum open positions: 1. Maximum open positions per symbol: 1.
+
+Only when every required condition and risk check passes is a trade allowed.

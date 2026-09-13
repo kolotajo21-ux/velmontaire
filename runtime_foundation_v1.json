@@ -1,0 +1,269 @@
+{
+  "critical_file_count": 65,
+  "files": {
+    "core/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    "core/compiler.py": {
+      "sha256": "a4fe21a392c70db04f9fb11117e275a3a6e795930d93e587756777c1d126af11",
+      "size": 10157
+    },
+    "core/concept_engine.py": {
+      "sha256": "ad24501805d8682ac7d19f848075902c13a9a3a4ee996b354b74b2565a81a787",
+      "size": 4871
+    },
+    "core/context.py": {
+      "sha256": "83afac020fec4bd9ffea66941fd47b72d821476e76074fdf09193fb0f97b354b",
+      "size": 5735
+    },
+    "core/detector.py": {
+      "sha256": "0aebb582834663a8bc08a38cb586823b30b68e58597530054b32292029ee620c",
+      "size": 4856
+    },
+    "core/entry_signal.py": {
+      "sha256": "41dc1c5f4967c8dc1e5472dcf3e47f5bcb348e368a6c86094f8cef191ac892fb",
+      "size": 4215
+    },
+    "core/execution_adapter.py": {
+      "sha256": "2d83a552af1b0935458b08a02794201bfaacc5e77d0fad9241026f9a2c5368a1",
+      "size": 6059
+    },
+    "core/execution_order.py": {
+      "sha256": "9fe71a068500d184a69f7f22a399d6c96d69eb09efd06ad8a92a83635b3b8c30",
+      "size": 4221
+    },
+    "core/execution_state.py": {
+      "sha256": "19effacd6e7e44fe6c443bd4a864d43d8f48d1af92ac77a695371e3bf28d8ede",
+      "size": 6507
+    },
+    "core/interfaces.py": {
+      "sha256": "b16a3c05928520235f146ebef9030dde71b436c3e436c582fea8c15203fdb002",
+      "size": 6753
+    },
+    "core/market_snapshot.py": {
+      "sha256": "f7c54938e41204abb6d45cf97eba2f25512b4042d8ad2a06b6bc131304a4cb78",
+      "size": 9234
+    },
+    "core/module_loader.py": {
+      "sha256": "f709bd028a90b8fd635622717c9b87a57aa09d10b1deb7dbb221b21a59c45600",
+      "size": 9633
+    },
+    "core/pipeline.py": {
+      "sha256": "e28a1a803931ee078de66a0f6e581de914433d8f5ff4103966dc6aaeadc39026",
+      "size": 12122
+    },
+    "core/poi_selector.py": {
+      "sha256": "842ab8b139c448b117654b1487e1d614036e785b81eb84d2340e0a4ba237bbc9",
+      "size": 11918
+    },
+    "core/registry.py": {
+      "sha256": "79afaefa7eb8bf00da4696ebacad8049527dddeae807e0ed92fa2fef07594ed4",
+      "size": 7513
+    },
+    "core/risk_plan.py": {
+      "sha256": "5b5f1f53c34d479b8347d4cbebccae952d04186280cb2719d8ee6e99d462339d",
+      "size": 4630
+    },
+    "core/strategy.py": {
+      "sha256": "0a39148718a2c760901071fceaf5869dddb5e6b2d63a7864f0af15b63a2d1f7c",
+      "size": 4383
+    },
+    "core/strategy_registry.py": {
+      "sha256": "25feb57fec277acbdbd469f130fa471da26a23c2c26a46018fd6a8c576442453",
+      "size": 7421
+    },
+    "core/trade_management_evaluator.py": {
+      "sha256": "3948e18f6c307ceac6e8408c030f90faa56138fd410ebda0756f532da3c0863c",
+      "size": 8623
+    },
+    "core/trade_management_plan.py": {
+      "sha256": "74126f614c3c5f3e2e0ae9a0ccef744f96c4d439b68d3e479109052459e6129e",
+      "size": 4307
+    },
+    "core/validator.py": {
+      "sha256": "9e5dbe91a0f73b38471b0fe4d7208ef44fabcffc79ebad06504a7ab837b337ef",
+      "size": 2515
+    },
+    "execution_adapters/mt5_execution.py": {
+      "sha256": "aba2ba5b62ef70907218a85588af1a4db575a83a8c9d55e4a24534de45d95a8e",
+      "size": 28877
+    },
+    "execution_adapters/mt5_execution_reader.py": {
+      "sha256": "49c3eb3ee08c15f6e2d064b597620dabbb379e505eac2a37b4f7ad24a9d82a39",
+      "size": 7080
+    },
+    "execution_adapters/mt5_position_reader.py": {
+      "sha256": "8796bc9781bac7d127fcde860dcd39f82e95bfde69a29838bc6af62e5f9ccc0b",
+      "size": 7613
+    },
+    "infrastructure/execution_journal.py": {
+      "sha256": "0c9776bcd92a11671a09aa652a276b9688a493ea26f105d1aa16a442fc8401cb",
+      "size": 9594
+    },
+    "infrastructure/execution_journal_recovery.py": {
+      "sha256": "5e5cc6eee46fc2f25bfcaee4dff2111e852598a1d1ddcbcfedc96c0e6ea602b8",
+      "size": 8152
+    },
+    "infrastructure/execution_lock.py": {
+      "sha256": "1f837ecae1923344311d8ff788157bfbe67ac8fce94abb425285215987e66ec7",
+      "size": 4334
+    },
+    "infrastructure/execution_retry_policy.py": {
+      "sha256": "e6f77847812d8bc90911e93070f0703551c45e5ce01b3cc8a4e2e576d192651c",
+      "size": 10141
+    },
+    "infrastructure/journaled_execution_submitter.py": {
+      "sha256": "87e86cb13668006cb43a1404f10e0d7af9edba51aa5a5e4c31e5bd63b3c1ad02",
+      "size": 5929
+    },
+    "infrastructure/multi_symbol_runtime_state_context.py": {
+      "sha256": "aa91a9692a06470a4dbdef6c8dc5e11a2df5eec5ba3bd49cb673f8c847915982",
+      "size": 9243
+    },
+    "infrastructure/production_safety_gate.py": {
+      "sha256": "02d985b1a19f6d6e017e6b57d1ef277354f6013d7cd84159e43ce3bfb7d310be",
+      "size": 7939
+    },
+    "infrastructure/runtime_execution_lifecycle.py": {
+      "sha256": "058d0f30dff49151588c30c8c42782f5af7ecc68b5d6cfa41b9e4cfc053fd48d",
+      "size": 22373
+    },
+    "infrastructure/runtime_state_context.py": {
+      "sha256": "ca6e85995bbb3d5fd5e0fbb46ed56688e77cd12e04e56a4543ac773272f35fcb",
+      "size": 3335
+    },
+    "infrastructure/runtime_state_store.py": {
+      "sha256": "78054486a5dd135846f417d2a592694efd3c70efbba9d9da153f6e79317fb043",
+      "size": 5885
+    },
+    "infrastructure/strategy_execution_journal.py": {
+      "sha256": "a0089b06e2b2ee0c659dd09aa76b261abd8178effb3ab89c870992dd0762d873",
+      "size": 5152
+    },
+    "infrastructure/strategy_execution_lock.py": {
+      "sha256": "1ed1a06a6a33b3539a0ec51fb001f957dad6b0de886f74de38038c46c82aadab",
+      "size": 999
+    },
+    "infrastructure/strategy_runtime_state_context.py": {
+      "sha256": "9e0d57298c12ada83fa933df3811ee560bc3141e3d076090908573cee9108b88",
+      "size": 4511
+    },
+    "strategy_runtime/__init__.py": {
+      "sha256": "742c833eea3f0992127dd5c21df0fadc7bebed4340ea33e92a851b086f20e3c9",
+      "size": 5507
+    },
+    "strategy_runtime/bound_position_management.py": {
+      "sha256": "ad8696f93832dd4f6e076a50f23de69a72cad496b19125c4969f2276452c3452",
+      "size": 7176
+    },
+    "strategy_runtime/condition_evaluator.py": {
+      "sha256": "f6f70e38e436b51c5628d081f8a283e30651cc7186a4e7b34fb66e849f5a665c",
+      "size": 17258
+    },
+    "strategy_runtime/execution_lifecycle.py": {
+      "sha256": "428621b42ecf6a1e603555e8b5d152f5452ceaf4972cc958680a11f3b8820458",
+      "size": 8630
+    },
+    "strategy_runtime/execution_lifecycle_sync.py": {
+      "sha256": "fbf6b643e926486995cc71e61b41a966cb45216d4b5862d7b8b722b6c7ce4c4d",
+      "size": 7344
+    },
+    "strategy_runtime/execution_position_binding.py": {
+      "sha256": "72f17566a5d8c37088ec88d83f1a2335b2812adadc85c0ce2ac2ce365d9f6c32",
+      "size": 8657
+    },
+    "strategy_runtime/execution_request.py": {
+      "sha256": "3e91a04d9f583df15677fedbf4c3b28235bbcb792529a5df129e71ba6194da65",
+      "size": 9551
+    },
+    "strategy_runtime/executor.py": {
+      "sha256": "d552b640feaf48d013d4b1cc1c3a9930defdf5769db86486d925583590e56bde",
+      "size": 8812
+    },
+    "strategy_runtime/generic_live_runtime.py": {
+      "sha256": "1d2833ded2abf0815c2374043ce9835500fdf3f22e6ed7e2d6ecbffe66b88d22",
+      "size": 3384
+    },
+    "strategy_runtime/generic_live_runtime_service.py": {
+      "sha256": "ca86ec93777dcf8bfa58969dc178398d8f3d617e7bb3ed007975fc83ca937207",
+      "size": 6703
+    },
+    "strategy_runtime/generic_runtime_startup.py": {
+      "sha256": "931a43ae5e04ac882b7e402b4d4115ed5f5b4209e374874e23ee7ee6ec21ab59",
+      "size": 4991
+    },
+    "strategy_runtime/journaled_position_management_cycle.py": {
+      "sha256": "27db7c7f17c3bab1541c6f308873ba8c57b000368ad317055581f1a4c0a39268",
+      "size": 5733
+    },
+    "strategy_runtime/live_position_management_runtime.py": {
+      "sha256": "4aab0879af58132e5330cacff6de2724d153ed99b51a55c28587281c07634132",
+      "size": 6703
+    },
+    "strategy_runtime/mt5_state_sync.py": {
+      "sha256": "8e8f5706c1c23784d917126e0388a8fbd2b3cac34367fee03586438525d79486",
+      "size": 10928
+    },
+    "strategy_runtime/persistent_position_management_cycle.py": {
+      "sha256": "c66ccfe7f4bb57c28219c6db01b309805e444e7471ba2d51318b29b099253481",
+      "size": 5380
+    },
+    "strategy_runtime/position_management.py": {
+      "sha256": "1b8ef785fa7112ca3c3cf7c69e7a76dad7db2032657d4a68fc0a86b8c3651e2b",
+      "size": 9032
+    },
+    "strategy_runtime/position_management_cycle.py": {
+      "sha256": "55bf64e3dc4e9e5f01753c215ae9fbb96e606ad51931cfa4feb7b65114f8541a",
+      "size": 4734
+    },
+    "strategy_runtime/position_management_execution.py": {
+      "sha256": "1d73ce04d8ea05a8a086409dfc16ac8630251c239ca1fb6d2e6428c058f0ce04",
+      "size": 8527
+    },
+    "strategy_runtime/position_management_intent_recovery.py": {
+      "sha256": "a7af72faaf599139528718bff88465402151c3ed38a734eaea9e94d96bf0aeba",
+      "size": 6462
+    },
+    "strategy_runtime/position_management_journal.py": {
+      "sha256": "1bb59927f4388c25584ec7778e963a26c13f475226974f9c751b534be39f5006",
+      "size": 5094
+    },
+    "strategy_runtime/position_management_startup_gate.py": {
+      "sha256": "b22ab92da503c56404a0ff8114500b76f423403ac68e45bc37785cd87e5e8168",
+      "size": 5506
+    },
+    "strategy_runtime/position_management_startup_recovery.py": {
+      "sha256": "83d586dbbe51a32e218517c218274c2406ba437c9bef8a3e06029cf7e86004e0",
+      "size": 7352
+    },
+    "strategy_runtime/position_management_state_store.py": {
+      "sha256": "b9ce2a9c651371e1337bcf33fbc794057c47084529b244a8203ec02a1d847dbc",
+      "size": 5012
+    },
+    "strategy_runtime/position_reconciliation.py": {
+      "sha256": "375490322d1fd52633b795b9fb9c3e9a44212da5c06bd1519f8ada094b82a6fb",
+      "size": 7389
+    },
+    "strategy_runtime/production_live_runtime.py": {
+      "sha256": "ec55e142c43437bc138b99180f2d215e2a20cf62d0493929a400c5afad82d72f",
+      "size": 4326
+    },
+    "strategy_runtime/recovery.py": {
+      "sha256": "af08d764bdd51af4912d4f133f07bcbe992ba7af7d68d50619754523761d8bcd",
+      "size": 6176
+    },
+    "strategy_runtime/submission_bridge.py": {
+      "sha256": "9fc47f48e3dfb72c6e084b050eabea25a1168a7214847142ba7deda8f240c273",
+      "size": 6623
+    },
+    "strategy_runtime/trade_plan.py": {
+      "sha256": "e6e1971bcd27840c70ac820b9d4a090a0bd0618753bc73a5adbf6c2f5233fc1e",
+      "size": 10727
+    }
+  },
+  "milestone": "80/80",
+  "name": "Runtime Foundation v1",
+  "status": "FROZEN",
+  "version": "1.0.0"
+}

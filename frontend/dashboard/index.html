@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VELMONTAIRE — Operator Workspace</title><link rel="stylesheet" href="/frontend/dashboard/styles.css"><script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script></head>
+<body><div class="shell"><aside class="side"><a class="brand" href="/"><div class="mark"><span>M</span></div>VELMONTAIRE</a>
+<div class="side-caption">Workspace</div><nav class="menu">
+<a data-route="statistics" href="/dashboard">Statistics</a>
+<a data-route="overview" href="/dashboard/overview">Overview</a>
+<a data-route="strategy" href="/dashboard/strategy">Strategy</a>
+<a data-route="my-strategies" href="/dashboard/my-strategies">My Strategies</a>
+<a data-route="backtest" href="/dashboard/backtest">Backtest</a>
+<a data-route="compare" href="/dashboard/compare">Compare</a>
+<a data-route="prop-rules" href="/dashboard/prop-rules">Prop Rules</a>
+<a data-route="mt5" href="/dashboard/mt5">MT5</a>
+<a data-route="paper" href="/dashboard/paper">PAPER</a>
+<a data-route="live" href="/dashboard/live">LIVE</a>
+<a data-route="safety" href="/dashboard/safety">Safety</a>
+<a data-route="billing" href="/dashboard/billing">Billing</a>
+<a data-route="telemetry" href="/dashboard/telemetry">Telemetry</a></nav>
+<div class="side-bottom"><button id="logout-button" class="btn" style="width:100%">Sign out</button></div></aside>
+
+<main id="dashboard" class="main">
+<header class="top">
+<div class="top-copy">
+  <div id="page-eyebrow" class="eyebrow">Operator workspace</div>
+  <h1 id="page-title">Control center</h1>
+  <p id="page-subtitle" class="sub">Your trading system, runtime and account health in one place.</p>
+</div>
+<div class="top-actions">
+  <div class="dash-language-switcher" id="dash-language-switcher">
+    <button class="dash-language-button" id="dash-language-button" type="button" aria-haspopup="true" aria-expanded="false">
+      <span class="dash-language-globe">◎</span>
+      <span id="dash-language-current">EN</span>
+      <span class="dash-language-chevron">⌄</span>
+    </button>
+    <div class="dash-language-menu" id="dash-language-menu" hidden>
+      <button type="button" data-dash-language="en"><span>EN</span><b>English</b></button>
+      <button type="button" data-dash-language="ru"><span>RU</span><b>Русский</b></button>
+      <button type="button" data-dash-language="uk"><span>UA</span><b>Українська</b></button>
+    </div>
+  </div>
+  <div class="operator-id"><span>Operator</span><strong id="user-id">Authenticating…</strong></div>
+  <span id="execution-mode" class="pill">MODE · SETUP</span>
+</div>
+</header>
+<section id="page-hero" class="page-hero" aria-live="polite"></section>
+
+
+<section id="statistics" class="page-view statistics-page" data-page="statistics">
+  
+  <section class="workspace-snapshot panel">
+    <div class="snapshot-head">
+      <div class="snapshot-title">
+        <div class="snapshot-mark"><span>M</span></div>
+        <div>
+          <div class="eyebrow">Account snapshot</div>
+          <h2>Dashboard overview</h2>
+          <p class="sub">The compact performance view from the homepage — now connected to the real workspace data.</p>
+        </div>
+      </div>
+      <div class="snapshot-state">
+        <span class="pill">PAPER / LIVE</span>
+        <span class="system-ok"><i></i> ALL SYSTEMS OK</span>
+      </div>
+    </div>
+
+    <div class="snapshot-kpis">
+      <article><small>Equity</small><strong id="snap-equity">—</strong><span id="snap-equity-change">Account data</span></article>
+      <article><small>Win Rate</small><strong id="snap-win-rate">—</strong><span id="snap-win-change">Selected period</span></article>
+      <article><small>Profit Factor</small><strong id="snap-profit-factor">—</strong><span>Selected period</span></article>
+      <article><small>Open Risk</small><strong id="snap-open-risk">—</strong><span id="snap-risk-note">Latest snapshot</span></article>
+    </div>
+
+    <div class="snapshot-lower">
+      <article class="snapshot-chart-card">
+        <div class="snapshot-card-head">
+          <div><small>Equity Curve</small><strong id="snap-period">30D</strong></div>
+          <span class="snapshot-dot"></span>
+        </div>
+        <canvas id="snapshot-equity-chart"></canvas>
+        <div class="snapshot-chart-labels"><span id="snap-start-date">—</span><span id="snap-mid-date">—</span><span id="snap-end-date">—</span></div>
+      </article>
+
+      <article class="snapshot-activity-card">
+        <div class="snapshot-card-head"><div><small>Recent Activity</small><strong>Workspace events</strong></div></div>
+        <div id="snapshot-recent-activity" class="snapshot-activity-list">
+          <div class="snapshot-activity-empty">No recent execution activity yet.</div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<div class="stats-toolbar panel">
+    <div>
+      <div class="eyebrow">Performance</div>
+      <h2>Daily trading statistics</h2>
+      <p class="sub">Every trading day in one place. Values are built from your execution logs — no demo performance is inserted.</p>
+    </div>
+    <div class="stats-filters">
+      <button class="btn stats-range" type="button" data-days="7">7D</button>
+      <button class="btn stats-range active" type="button" data-days="30">30D</button>
+      <button class="btn stats-range" type="button" data-days="90">90D</button>
+      <button id="statistics-refresh" class="btn" type="button">Refresh</button>
+    </div>
+  </div>
+
+  <div class="performance-kpis">
+    <article class="performance-kpi"><small>Current Equity</small><strong id="stat-equity">—</strong><span id="stat-equity-note">Waiting for account data</span></article>
+    <article class="performance-kpi"><small>Today's P/L</small><strong id="stat-today-pnl">—</strong><span id="stat-today-trades">0 trades today</span></article>
+    <article class="performance-kpi"><small>Win Rate</small><strong id="stat-win-rate">—</strong><span id="stat-win-note">Selected period</span></article>
+    <article class="performance-kpi"><small>Profit Factor</small><strong id="stat-profit-factor">—</strong><span>Selected period</span></article>
+    <article class="performance-kpi"><small>Open Risk</small><strong id="stat-open-risk">—</strong><span>Latest runtime snapshot</span></article>
+  </div>
+
+  <div class="statistics-main-grid">
+    <article class="panel statistics-chart-panel">
+      <div class="section-head">
+        <div><div class="eyebrow">Performance curve</div><h2>Daily P/L</h2></div>
+        <span id="statistics-period-label" class="pill">30 DAYS</span>
+      </div>
+      <canvas id="daily-pnl-chart" class="daily-pnl-chart"></canvas>
+      <div id="statistics-empty" class="stats-empty" hidden>
+        <strong>No trading statistics yet</strong>
+        <p>Once PAPER/LIVE execution logs contain closed-trade P/L, daily results will appear here automatically.</p>
+      </div>
+    </article>
+
+    <article class="panel statistics-summary">
+      <div class="section-head"><div><div class="eyebrow">Period summary</div><h2>Trading quality</h2></div></div>
+      <div class="quality-grid">
+        <div><small>Trades</small><strong id="stat-trades">0</strong></div>
+        <div><small>Wins</small><strong id="stat-wins">0</strong></div>
+        <div><small>Losses</small><strong id="stat-losses">0</strong></div>
+        <div><small>Net P/L</small><strong id="stat-net-pnl">—</strong></div>
+        <div><small>Net R</small><strong id="stat-net-r">—</strong></div>
+        <div><small>Max DD</small><strong id="stat-max-dd">—</strong></div>
+      </div>
+      <div class="statistics-source">
+        <span class="health-dot good"></span>
+        <div><strong>Source</strong><p id="statistics-source-text">Execution logs</p></div>
+      </div>
+    </article>
+  </div>
+
+  <article class="panel daily-history-panel">
+    <div class="section-head">
+      <div><div class="eyebrow">Day by day</div><h2>Daily history</h2><p class="sub">Click a day to see its result without searching through raw runtime logs.</p></div>
+    </div>
+    <div class="daily-table-wrap">
+      <table class="daily-table">
+        <thead><tr>
+          <th>Date</th><th>Trades</th><th>W / L</th><th>Win rate</th><th>Net P/L</th><th>Net R</th><th>Max DD</th>
+        </tr></thead>
+        <tbody id="daily-statistics-rows"></tbody>
+      </table>
+    </div>
+  </article>
+</section>
+
+<section class="stats page-view" data-page="overview"><div class="stat"><small>Balance</small><strong>—</strong></div><div class="stat"><small>Equity</small><strong>—</strong></div><div class="stat"><small>Daily P/L</small><strong>—</strong></div><div class="stat"><small>Drawdown</small><strong>—</strong></div></section>
+
+<section class="page-view dashboard-grid" data-page="overview">
+  <article class="panel insight-card">
+    <div class="card-icon">◎</div>
+    <div><div class="eyebrow">System readiness</div><h3>Execution stack</h3><p class="sub">Strategy parsing, backtest, broker and runtime safety are visible at a glance.</p></div>
+    <div class="health-row"><span class="health-dot good"></span><strong>Core online</strong><span>Fail-closed</span></div>
+  </article>
+  <article class="panel insight-card">
+    <div class="card-icon">↗</div>
+    <div><div class="eyebrow">Quick action</div><h3>Build a strategy</h3><p class="sub">Describe the logic naturally, review structured rules, then compile a version.</p></div>
+    <a class="btn gold action-link" href="/dashboard/strategy">Open Strategy Builder</a>
+  </article>
+  <article class="panel insight-card">
+    <div class="card-icon">◈</div>
+    <div><div class="eyebrow">Runtime guard</div><h3>Safety first</h3><p class="sub">Recovery, reconciliation and duplicate protection stay in front of execution.</p></div>
+    <a class="btn action-link" href="/dashboard/safety">Open Safety Center</a>
+  </article>
+</section>
+
+
+<section class="panel page-view setup-center" data-page="overview">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Start here</div>
+      <h2>Set up VELMONTAIRE in 5 steps</h2>
+      <p class="sub">You should never have to hunt through the workspace. Follow this path once, then operate from the pages you need.</p>
+    </div>
+    <span class="pill">GUIDED SETUP</span>
+  </div>
+  <div class="setup-steps">
+    <a class="setup-step" href="/dashboard/billing"><span>01</span><div><strong>Choose a plan</strong><p>See limits, LIVE access and prop support.</p></div><b>→</b></a>
+    <a class="setup-step" href="/dashboard/prop-rules"><span>02</span><div><strong>Choose account rules</strong><p>Personal, CFD prop or futures prop.</p></div><b>→</b></a>
+    <a class="setup-step" href="/dashboard/mt5"><span>03</span><div><strong>Connect MT5</strong><p>Add login, server and password, then verify.</p></div><b>→</b></a>
+    <a class="setup-step" href="/dashboard/strategy"><span>04</span><div><strong>Create strategy</strong><p>Describe, clarify, review and approve.</p></div><b>→</b></a>
+    <a class="setup-step" href="/dashboard/paper"><span>05</span><div><strong>PAPER → LIVE</strong><p>Dry-run first, authorize LIVE only when ready.</p></div><b>→</b></a>
+  </div>
+</section>
+
+<section class="panel page-view" data-page="overview"><div class="section-head"><div><div class="eyebrow">Customer journey</div><h2>Production path</h2></div><span class="pill">Fail-closed</span></div>
+<ol id="journey" class="journey"><li data-step="ACCOUNT">ACCOUNT</li><li data-step="STRATEGY">STRATEGY</li><li data-step="CLARIFICATION">CLARIFICATION</li><li data-step="REVIEW">REVIEW</li><li data-step="BACKTEST">BACKTEST</li><li data-step="COMPARE">COMPARE</li><li data-step="MT5">MT5</li><li data-step="PAPER">PAPER</li><li data-step="LIVE">LIVE</li><li data-step="MONITOR">MONITOR</li></ol></section>
+
+<section id="strategy" class="panel page-view" data-page="strategy"><div class="section-head"><div><div class="eyebrow">AI Strategy Builder</div><h2>Describe once. Control every rule.</h2><p class="sub">AI parses natural language, fills structured settings and surfaces unresolved rules instead of guessing.</p></div><span class="pill">AI → STRUCTURED</span></div>
+<div class="workspace-grid"><div>
+<form id="strategy-create-form" class="strategy-form"><div class="field"><label>Strategy name</label><input name="name" required maxlength="120" placeholder="London Sweep Model"></div><div class="field"><label>Trading rules</label><textarea name="source_text" required placeholder="Example: After a sweep of the Asian low, wait for bullish CHoCH on M5, enter from the Order Block, stop beyond the distal, target 3R, risk 0.5%..."></textarea></div><button class="btn gold" type="submit">Parse & create strategy</button></form><p id="strategy-status" class="status-line"></p><div id="clarification-box" class="panel compact-panel"></div><div id="review-box" class="panel compact-panel"></div></div>
+<div class="stack"><div class="panel compact-panel"><div class="eyebrow">Structured controls preview</div><div class="structured-grid">
+<div class="structured-card"><label>Market</label><select><option>Forex</option><option>Indices</option><option>Metals</option><option>Crypto</option></select></div>
+<div class="structured-card"><label>Direction</label><select><option>Both</option><option>Long only</option><option>Short only</option></select></div>
+<div class="structured-card"><label>Entry timeframe</label><select><option>M5</option><option>M15</option><option>H1</option></select></div>
+<div class="structured-card"><label>Entry model</label><select><option>Order Block</option><option>FVG</option><option>Market</option><option>Custom</option></select></div>
+<div class="structured-card"><label>Risk / trade</label><input value="0.50%"></div>
+<div class="structured-card"><label>Take profit</label><input value="3.0 R"></div>
+<div class="structured-card"><label>Management</label><select><option>BE @ 1R</option><option>No management</option><option>Trailing</option></select></div>
+<div class="structured-card unresolved-card"><label>Unresolved</label><input value="OB expiration — required" readonly></div>
+</div><p class="sub">These controls are the target UX layer: AI-filled, human-reviewable and editable before compilation.</p></div></div></div></section>
+
+<section id="notification-center" class="panel overlay-panel" aria-label="Notification Center"><div class="section-head"><div><div class="eyebrow">Updates</div><h2>Notification Center <span class="pill notification-panel-badge" data-notification-badge></span></h2><p class="sub">Request progress, released capabilities and important product updates.</p></div></div><div id="notification-list">No notifications yet.</div></section>
+
+<section id="missing-capability" class="panel page-view" data-page="strategy">
+<div class="section-head"><div><div class="eyebrow">Capability Lab</div><h2>Can't find a rule?</h2><p class="sub">Describe the missing condition. Existing modules are reused first; genuinely new capabilities enter a controlled future-release queue.</p></div><span class="pill">SAFE EXTENSION</span></div>
+<form id="capability-request-form"><div class="field"><label>What do you need?</label><textarea id="capability-request-text" maxlength="4000" required placeholder="Example: I need CVD divergence from futures order-flow data..."></textarea></div><button class="btn gold" type="submit">Analyze capability</button></form>
+<p id="capability-request-status" class="status-line"></p><pre id="capability-request-list">No requests yet.</pre>
+</section>
+
+
+<section id="my-strategies" class="page-view" data-page="my-strategies">
+  <section class="panel strategies-library-head">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Strategy library</div>
+        <h2>My Strategies</h2>
+        <p class="sub">Every strategy saved to your VELMONTAIRE account. Strategy data is server-side and scoped to your signed-in user.</p>
+      </div>
+      <div class="library-actions">
+        <a class="btn gold" href="/dashboard/strategy">+ Create strategy</a>
+        <button id="my-strategies-refresh" class="btn" type="button">Refresh</button>
+      </div>
+    </div>
+    <div class="strategy-library-toolbar strategy-library-toolbar-v11">
+      <div class="field strategy-library-search">
+        <label>Search</label>
+        <input id="my-strategies-search" type="search" placeholder="Strategy name or ID" autocomplete="off">
+      </div>
+
+      <div class="field strategy-filter-field">
+        <label>Status</label>
+        <select id="my-strategies-filter">
+          <option value="ACTIVE">Active</option>
+          <option value="FAVORITES">Favorites</option>
+          <option value="ARCHIVED">Archived</option>
+          <option value="ALL">All</option>
+        </select>
+      </div>
+
+      <div class="field strategy-filter-field">
+        <label>Sort</label>
+        <select id="my-strategies-sort">
+          <option value="UPDATED_DESC">Recently updated</option>
+          <option value="UPDATED_ASC">Oldest updated</option>
+          <option value="NAME_ASC">Name A → Z</option>
+          <option value="NAME_DESC">Name Z → A</option>
+          <option value="VERSIONS_DESC">Most versions</option>
+        </select>
+      </div>
+
+      <div class="library-counter"><small>Visible / Total</small><strong><span id="my-strategies-visible-count">0</span> / <span id="my-strategies-count">0</span></strong></div>
+    </div>
+  </section>
+
+  <section class="panel strategies-library-body">
+    <p id="my-strategies-status" class="status-line">Loading strategies…</p>
+    <div id="my-strategies-grid" class="my-strategies-grid"></div>
+    <div id="my-strategies-empty" class="strategy-library-empty" hidden>
+      <div class="library-empty-mark">M</div>
+      <h2>No strategies saved yet.</h2>
+      <p>Create your first strategy. Once created, it is stored under your account and appears here automatically.</p>
+      <a class="btn gold" href="/dashboard/strategy">Create first strategy</a>
+    </div>
+  </section>
+
+
+  <div id="strategy-library-modal" class="strategy-library-modal" hidden>
+    <div class="strategy-library-modal-backdrop" data-modal-close></div>
+    <section class="strategy-library-dialog" role="dialog" aria-modal="true" aria-labelledby="strategy-library-modal-title">
+      <div class="section-head">
+        <div>
+          <div id="strategy-library-modal-eyebrow" class="eyebrow">Strategy action</div>
+          <h2 id="strategy-library-modal-title">Strategy</h2>
+        </div>
+        <button class="btn" type="button" data-modal-close>Close</button>
+      </div>
+      <div id="strategy-library-modal-body"></div>
+    </section>
+  </div>
+
+  <section id="strategy-version-panel" class="panel strategy-version-panel" hidden>
+    <div class="section-head">
+      <div><div class="eyebrow">Immutable history</div><h2 id="strategy-version-title">Version History</h2></div>
+      <button id="strategy-version-close" class="btn" type="button">Close</button>
+    </div>
+    <div id="strategy-version-list" class="strategy-version-list"></div>
+  </section>
+</section>
+
+<section id="backtest" class="panel page-view" data-page="backtest"><div class="section-head"><div><div class="eyebrow">Backtest</div><h2>Validation & performance</h2></div><span class="pill">Exact version</span></div>
+<form id="backtest-form" class="strategy-form"><div class="field"><label>Strategy ID</label><input name="strategy_id" placeholder="Filled after strategy creation"></div><div class="review-grid">
+<div class="field"><label>Symbol</label><input name="symbol" value="EURUSD" required></div><div class="field"><label>Timeframe</label><select name="timeframe"><option>M1</option><option selected>M5</option><option>M15</option><option>M30</option><option>H1</option><option>H4</option><option>D1</option></select></div>
+<div class="field"><label>Date from</label><input name="date_from" type="date" required></div><div class="field"><label>Date to</label><input name="date_to" type="date" required></div><div class="field"><label>Starting balance</label><input name="starting_balance" type="number" min="1" step="1" value="5000" required></div><div class="field"><label>Spread (pips)</label><input name="spread_pips" type="number" min="0" step="0.1" value="0"></div><div class="field"><label>Commission / lot</label><input name="commission_per_lot" type="number" min="0" step="0.01" value="0"></div><div class="field"><label>Slippage (pips)</label><input name="slippage_pips" type="number" min="0" step="0.1" value="0"></div></div>
+<button class="btn gold" type="submit">Create backtest</button><button id="run-backtest" class="btn" type="button">Run</button></form><p id="backtest-status" class="status-line"></p><p id="backtest-job" class="sub"></p><div id="backtest-metrics" class="stats"></div><canvas id="equity-chart" style="width:100%;height:240px;margin-top:14px"></canvas><div style="overflow:auto"><table><thead><tr><th>Side</th><th>Entry time</th><th>Exit time</th><th>Outcome</th><th>R</th><th>P/L</th><th>Costs</th></tr></thead><tbody id="backtest-trades"></tbody></table></div><pre id="backtest-result"></pre></section>
+
+<section id="comparison" class="panel page-view" data-page="compare"><div class="section-head"><div><div class="eyebrow">Version comparison</div><h2>Compare immutable versions</h2></div><span class="pill">Same conditions</span></div><form id="comparison-form" class="strategy-form"><div class="review-grid"><div class="field"><label>Previous backtest ID</label><input name="previous_backtest_id" required placeholder="backtest_..."></div><div class="field"><label>Candidate backtest ID</label><input name="candidate_backtest_id" required placeholder="backtest_..."></div></div><button class="btn gold" type="submit">Compare versions</button></form><p id="comparison-status" class="status-line"></p><p id="comparison-summary" class="sub"></p><div style="overflow:auto"><table><thead><tr><th>Metric</th><th>Previous</th><th>Candidate</th><th>Delta</th><th>Direction</th></tr></thead><tbody id="comparison-metrics"></tbody></table></div><div class="panel compact-panel"><div class="eyebrow">Schema changes</div><ul id="comparison-changes"></ul></div><canvas id="comparison-equity" style="width:100%;height:260px"></canvas></section>
+
+<section id="prop-rules" class="panel page-view" data-page="prop-rules"><div class="section-head"><div><div class="eyebrow">Account environment</div><h2>Personal account or Prop Firm?</h2><p class="sub">Select the environment once. VELMONTAIRE applies the correct account constraints before execution.</p></div><span class="pill">STEP 2 / ACCOUNT RULES</span></div>
+<div class="account-paths">
+  <div class="account-path"><span class="path-icon">P</span><div><strong>Personal account</strong><p>No prop-specific limits. You still use strategy and runtime risk controls.</p></div></div>
+  <div class="account-path featured"><span class="path-icon">PROP</span><div><strong>Prop Firm account</strong><p>Select firm, program, phase and account size. Then connect that prop MT5 account.</p></div><a href="/dashboard/mt5">MT5 comes next →</a></div>
+</div>
+<div class="field"><label>Account type</label><select id="account-mode"><option value="PERSONAL">Personal / No Prop Rules</option><option value="PROP_FIRM">Prop Firm</option></select></div>
+<div id="prop-controls" class="prop-selects" hidden><div class="field"><label>Firm</label><select id="prop-firm"></select></div><div class="field"><label>Program</label><select id="prop-program"></select></div><div class="field"><label>Stage / Phase</label><select id="prop-phase"></select></div><div class="field"><label>Account Size</label><select id="prop-account-size"></select></div></div>
+<button id="apply-prop-rules" class="btn gold" type="button">Apply Prop Rules</button><p id="prop-status" class="status-line">Not configured</p><pre id="prop-rules-preview">{}</pre>
+<div class="next-step-banner"><div><div class="eyebrow">After rules are selected</div><strong>Connect the exact MT5 account these rules belong to.</strong><p>For a prop account, use the login/server/password provided by the prop firm for that challenge or funded account.</p></div><a class="btn gold action-link" href="/dashboard/mt5">Continue to MT5 →</a></div><div class="workspace-grid"><div class="panel compact-panel"><div class="eyebrow">News compliance</div><h3>Pre-trade news check</h3><div class="review-grid"><div class="field"><label>Symbol</label><input id="news-symbol" value="EURUSD"></div><div class="field"><label>Action</label><select id="news-action"><option>OPEN</option><option>CLOSE</option><option>HOLD</option><option>PENDING_TRIGGER</option></select></div><div class="field"><label>UTC timestamp</label><input id="news-now" placeholder="2026-08-18T12:00:00+00:00"></div></div><div class="field"><label>Normalized events JSON</label><textarea id="news-events-json">[]</textarea></div><button id="news-check" class="btn" type="button">Check News Compliance</button><pre id="news-compliance-result">{}</pre></div>
+<div class="panel compact-panel"><div class="eyebrow">Prop risk compliance</div><h3>Account safety check</h3><div class="review-grid"><div class="field"><label>Action</label><select id="risk-action"><option>OPEN</option><option>HOLD</option><option>CLOSE</option><option>PENDING_TRIGGER</option></select></div><div class="field"><label>Requested risk amount</label><input id="requested-risk" type="number" value="0" min="0" step="0.01"></div></div><label><input id="risk-weekend" type="checkbox" style="width:auto;min-height:auto"> Weekend context</label><div class="field"><label>Account snapshot JSON</label><textarea id="risk-snapshot-json">{}</textarea></div><button id="risk-check" class="btn" type="button">Check Prop Risk</button><pre id="risk-compliance-result">{}</pre></div></div></section>
+
+<section id="unified-prop-selector" class="panel page-view" data-page="prop-rules"><div class="section-head"><div><div class="eyebrow">Account Environment</div><h2>Choose trading account rules</h2><p class="sub">Structured selection keeps compliance server-owned.</p></div><span class="pill">VERIFIED RULES</span></div><div class="prop-selects"><div class="field"><label>Type</label><select id="unified-prop-type"><option value="PERSONAL">Personal</option><option value="CFD_PROP" selected>CFD / Forex Prop</option><option value="FUTURES_PROP">Futures Prop</option></select></div><div class="field"><label>Firm</label><select id="unified-prop-firm"></select></div><div class="field"><label>Program</label><select id="unified-prop-program"></select></div><div class="field"><label>Stage</label><select id="unified-prop-stage"></select></div><div class="field"><label>Account Size</label><select id="unified-prop-size"></select></div></div><p id="unified-prop-note" class="status-line"></p><pre id="unified-prop-preview">{}</pre></section>
+
+<section id="futures-prop-selector" class="panel page-view" data-page="prop-rules"><div class="section-head"><div><div class="eyebrow">Futures Prop Environment</div><h2>Choose verified futures prop rules</h2><p class="sub">Structured server-owned futures prop selection.</p></div><span class="pill">FUTURES</span></div><div class="prop-selects"><div class="field"><label>Firm</label><select id="futures-prop-firm"></select></div><div class="field"><label>Program</label><select id="futures-prop-program"></select></div><div class="field"><label>Stage</label><select id="futures-prop-stage"></select></div><div class="field"><label>Account Size</label><select id="futures-prop-size"></select></div></div><pre id="futures-prop-preview">{}</pre></section>
+
+
+<section id="broker" class="panel page-view" data-page="mt5">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Broker connection</div>
+      <h2>Connect your MT5 account</h2>
+      <p class="sub">Works for a personal MT5 account and for a prop-firm MT5 account. VELMONTAIRE needs the credentials issued for that exact trading account.</p>
+    </div>
+    <span class="pill">STEP 3 / VERIFIED CONNECTION</span>
+  </div>
+
+  <div class="connect-layout">
+    <div class="connect-main">
+      <div class="connection-kind">
+        <div class="choice-card">
+          <span class="choice-icon">P</span>
+          <div><strong>Personal account</strong><p>Use the MT5 login/server/password from your broker.</p></div>
+        </div>
+        <div class="choice-card">
+          <span class="choice-icon">PROP</span>
+          <div><strong>Prop account</strong><p>First select the prop rules, then use the prop firm's MT5 credentials here.</p></div>
+          <a href="/dashboard/prop-rules">Configure Prop Rules →</a>
+        </div>
+      </div>
+
+      <form id="mt5-form" class="strategy-form connect-form">
+        <div class="review-grid">
+          <div class="field">
+            <label>MT5 login</label>
+            <input name="login" required autocomplete="off" placeholder="Example: 12345678">
+            <small class="field-help">The numeric account login from MT5 / broker / prop dashboard.</small>
+          </div>
+          <div class="field">
+            <label>MT5 server</label>
+            <input name="server" required autocomplete="off" placeholder="Example: FundingPips-SIM1">
+            <small class="field-help">Must match the server name exactly as shown in MT5.</small>
+          </div>
+        </div>
+        <div class="field">
+          <label>MT5 password</label>
+          <input name="password" type="password" required autocomplete="off" placeholder="Trading password">
+          <small class="field-help">Use the trading password for this account. It is cleared from the form after save.</small>
+        </div>
+        <div class="connect-actions">
+          <button class="btn gold" type="submit">1. Save connection</button>
+          <button class="btn" id="test-mt5" type="button">2. Test connection</button>
+        </div>
+      </form>
+
+      <div class="connection-result">
+        <div><span class="health-dot warn" id="mt5-health-dot"></span><strong>Connection status</strong></div>
+        <p id="mt5-status" class="status-line">Not configured yet.</p>
+        <p id="mt5-connection" class="sub">No verified MT5 connection.</p>
+      </div>
+    </div>
+
+    <aside class="connect-guide">
+      <div class="eyebrow">What happens next?</div>
+      <div class="guide-step"><span>1</span><div><strong>Save credentials</strong><p>Creates the broker connection record.</p></div></div>
+      <div class="guide-step"><span>2</span><div><strong>Verify connection</strong><p>VELMONTAIRE checks that the account can be reached.</p></div></div>
+      <div class="guide-step"><span>3</span><div><strong>Create / approve strategy</strong><p>The runtime needs an approved immutable strategy version.</p></div></div>
+      <div class="guide-step"><span>4</span><div><strong>Start PAPER</strong><p>Run the production path without LIVE authority.</p></div></div>
+      <div class="guide-step"><span>5</span><div><strong>Authorize LIVE</strong><p>Only after all safety prerequisites are satisfied.</p></div></div>
+      <a class="btn action-link" href="/dashboard/paper">Continue to PAPER →</a>
+    </aside>
+  </div>
+</section>
+
+
+<section id="runtime" class="panel page-view" data-page="paper"><div class="section-head"><div><div class="eyebrow">PAPER runtime</div><h2>Controlled dry-run</h2></div><span class="pill">No LIVE authority</span></div><form id="paper-form" class="strategy-form"><div class="review-grid"><div class="field"><label>Bot ID</label><input name="bot_id" required></div><div class="field"><label>Approved strategy version</label><input name="strategy_version_id" required></div></div><button class="btn gold" type="submit">Start PAPER</button></form><p id="paper-status" class="status-line">PAPER stopped.</p></section>
+
+<section id="live" class="panel danger-zone page-view" data-page="live"><div class="section-head"><div><div class="eyebrow">LIVE runtime</div><h2>Explicit authorization</h2></div><span class="pill">Protected</span></div><form id="live-confirm-form" class="strategy-form"><div class="review-grid"><div class="field"><label>Bot ID</label><input name="bot_id" required></div><div class="field"><label>Strategy version ID</label><input name="strategy_version_id" required></div><div class="field"><label>Verified MT5 connection ID</label><input name="broker_connection_id" required></div><div class="field"><label>Confirmation phrase</label><input name="confirmation_text" required placeholder="Type exact LIVE confirmation phrase"></div></div><div class="runtime-actions"><button class="btn gold" type="submit">Confirm LIVE</button><button id="live-start" class="btn" type="button">Start LIVE</button><button id="live-pause" class="btn" type="button">Pause</button><button id="live-stop" class="btn" type="button">Stop</button><button id="live-refresh" class="btn" type="button">Refresh</button><button id="live-revoke" class="btn" type="button">Revoke LIVE</button></div></form><p id="live-status" class="status-line">LIVE not authorized.</p><pre id="live-telemetry">{}</pre></section>
+
+<section id="failure-safety" class="panel danger-zone page-view" data-page="safety"><div class="section-head"><div><div class="eyebrow">Production safety</div><h2>Failure & recovery</h2></div><div id="failure-banner" class="pill" data-state="UNKNOWN">RUNTIME STATUS UNKNOWN</div></div><p class="sub">Disconnects and uncertain restart state block new entries until reconciliation succeeds.</p><div class="review-grid"><div class="field"><label>Bot ID</label><input id="failure-bot-id" placeholder="bot_..." required></div><div class="field"><label>Connection status</label><select id="failure-connection-status"><option>CONNECTED</option><option>DISCONNECTED</option></select></div></div><div class="runtime-actions"><button id="failure-disconnect" class="btn" type="button">Disconnect event</button><button id="failure-recover" class="btn gold" type="button">Reconnect recovery</button><button id="failure-restart" class="btn" type="button">Restart recovery</button><button id="failure-refresh" class="btn" type="button">Refresh safety state</button></div><p id="failure-status" class="status-line"></p><pre id="failure-diagnostics">{}</pre></section>
+
+
+<section id="billing" class="panel page-view billing-page" data-page="billing">
+  <div class="section-head billing-head">
+    <div>
+      <div class="eyebrow">Plan & billing</div>
+      <h2>Choose the plan that matches how you trade</h2>
+      <p class="sub">Prices, limits and important features are visible here immediately. No hidden comparison page.</p>
+    </div>
+    <button id="billing-refresh" class="btn" type="button">Refresh account</button>
+  </div>
+
+  <div class="billing-current">
+    <div>
+      <small>Current subscription</small>
+      <strong id="billing-current-plan">Loading…</strong>
+      <p id="billing-status" class="sub">Checking your account.</p>
+    </div>
+    <div class="usage-summary" id="billing-usage-cards"></div>
+  </div>
+
+  <div class="pricing-toggle-note">Monthly pricing shown · annual equivalent is also displayed</div>
+
+  <div id="billing-plan-cards" class="plan-grid">
+    <article class="plan-card" data-plan-card="CORE">
+      <div class="plan-top"><div><span class="plan-name">CORE</span><p>Build and validate strategies.</p></div><span class="plan-badge">START</span></div>
+      <div class="plan-price"><strong>$29</strong><span>/ month</span></div>
+      <div class="annual-note">$23/mo billed annually</div>
+      <ul class="plan-features">
+        <li>3 strategies</li><li>30 backtests / month</li><li>AI Strategy Builder</li><li>PAPER trading</li><li>Personal markets</li>
+        <li class="muted-feature">No prop-firm rules</li><li class="muted-feature">No LIVE execution</li>
+      </ul>
+      <button class="btn plan-cta" data-paddle-plan="CORE">Choose CORE</button>
+    </article>
+
+    <article class="plan-card recommended" data-plan-card="PRO">
+      <div class="recommended-label">MOST USEFUL</div>
+      <div class="plan-top"><div><span class="plan-name">PRO</span><p>For serious personal + prop trading.</p></div><span class="plan-badge gold-badge">POPULAR</span></div>
+      <div class="plan-price"><strong>$49</strong><span>/ month</span></div>
+      <div class="annual-note">$39/mo billed annually</div>
+      <ul class="plan-features">
+        <li>15 strategies</li><li>150 backtests / month</li><li>3 broker connections</li><li>3 active LIVE bots</li><li>CFD + Futures Prop Rules</li><li>LIVE execution</li><li>Advanced analytics</li>
+      </ul>
+      <button class="btn gold plan-cta" data-paddle-plan="PRO">Choose PRO</button>
+    </article>
+
+    <article class="plan-card" data-plan-card="ELITE">
+      <div class="plan-top"><div><span class="plan-name">ELITE</span><p>Higher limits for multi-account operation.</p></div><span class="plan-badge">SCALE</span></div>
+      <div class="plan-price"><strong>$89</strong><span>/ month</span></div>
+      <div class="annual-note">$71/mo billed annually</div>
+      <ul class="plan-features">
+        <li>50 strategies</li><li>500 backtests / month</li><li>10 broker connections</li><li>10 active LIVE bots</li><li>All prop features</li><li>LIVE execution</li><li>Priority support</li>
+      </ul>
+      <button class="btn plan-cta" data-paddle-plan="ELITE">Choose ELITE</button>
+    </article>
+  </div>
+
+  <div class="plan-comparison">
+    <div class="section-head mini"><div><div class="eyebrow">At a glance</div><h3>What changes between plans?</h3></div></div>
+    <div class="comparison-row header"><span>Feature</span><b>CORE</b><b>PRO</b><b>ELITE</b></div>
+    <div class="comparison-row"><span>AI Strategy Builder</span><b>✓</b><b>✓</b><b>✓</b></div>
+    <div class="comparison-row"><span>PAPER trading</span><b>✓</b><b>✓</b><b>✓</b></div>
+    <div class="comparison-row"><span>Prop-firm rules</span><b>—</b><b>✓</b><b>✓</b></div>
+    <div class="comparison-row"><span>LIVE execution</span><b>—</b><b>✓</b><b>✓</b></div>
+    <div class="comparison-row"><span>Advanced analytics</span><b>—</b><b>✓</b><b>✓</b></div>
+    <div class="comparison-row"><span>Priority support</span><b>—</b><b>—</b><b>✓</b></div>
+  </div>
+
+  <div id="billing-entitlements" class="entitlement-list" hidden></div>
+  <pre id="billing-subscription" hidden>null</pre>
+  <pre id="billing-usage" hidden>{}</pre>
+  <p class="sub billing-footnote">Checkout currently uses Paddle Sandbox in the development environment.</p>
+</section>
+
+
+<section id="telemetry" class="panel page-view" data-page="telemetry">
+<div class="section-head"><div><div class="eyebrow">Telemetry</div><h2>Runtime health</h2><p class="sub">Operational health, latency and fail-closed signals converge here.</p></div><span class="pill">Monitoring</span></div>
+<div class="telemetry-grid">
+  <div class="telemetry-card"><small>API</small><strong>ONLINE</strong><span class="health-dot good"></span><p>Authenticated application surface</p></div>
+  <div class="telemetry-card"><small>Runtime</small><strong>GUARDED</strong><span class="health-dot good"></span><p>Transaction + idempotency boundary</p></div>
+  <div class="telemetry-card"><small>Recovery</small><strong>READY</strong><span class="health-dot good"></span><p>Checkpoint + journal reconciliation</p></div>
+  <div class="telemetry-card"><small>Execution</small><strong>SETUP</strong><span class="health-dot warn"></span><p>Starts only after explicit authorization</p></div>
+</div>
+<div class="activity-shell">
+  <div class="section-head mini"><div><div class="eyebrow">Operator feed</div><h3>Recent system activity</h3></div></div>
+  <div class="activity-list">
+    <div class="activity-item"><span class="activity-mark"></span><div><strong>Workspace initialized</strong><p>Session and entitlement checks are active.</p></div><time>NOW</time></div>
+    <div class="activity-item"><span class="activity-mark"></span><div><strong>Fail-closed runtime enabled</strong><p>Unsafe state transitions remain blocked.</p></div><time>READY</time></div>
+    <div class="activity-item"><span class="activity-mark"></span><div><strong>Recovery stack available</strong><p>Checkpoint, journal and replay components are installed.</p></div><time>READY</time></div>
+  </div>
+</div>
+</section>
+</main></div>
+<script src="/frontend/dashboard/dashboard.js"></script><script src="/frontend/dashboard/statistics.js"></script><script src="/frontend/dashboard/strategy.js"></script><script src="/frontend/dashboard/strategy_resume.js"></script><script src="/frontend/dashboard/my_strategies.js"></script><script src="/frontend/dashboard/backtest.js"></script><script src="/frontend/dashboard/comparison.js"></script><script src="/frontend/dashboard/mt5-paper.js"></script><script src="/frontend/dashboard/live.js"></script><script src="/frontend/dashboard/failure.js"></script><script src="/frontend/dashboard/billing.js"></script><script src="/frontend/dashboard/prop_rules.js"></script><script src="/frontend/dashboard/news_compliance.js"></script><script src="/frontend/dashboard/prop_risk.js"></script>
+<script src="/frontend/dashboard/capability_requests.js"></script>
+<script src="/frontend/dashboard/notifications.js"></script>
+<script src="/frontend/dashboard/futures_prop.js"></script>
+<script src="/frontend/dashboard/unified_prop.js"></script>
+<script src="/frontend/dashboard/compact_ux.js"></script>
+<script src="/frontend/dashboard/paddle_checkout.js"></script>
+<script src="/frontend/dashboard/i18n.js"></script></body></html>

@@ -1,0 +1,14 @@
+function pe(id,t){const e=document.querySelector(id);if(e)e.textContent=t}
+function fmtPrice(x){const p=Number(x.price);if(!Number.isFinite(p))return String(x.price??"");if(p>=1000)return p.toLocaleString(undefined,{maximumFractionDigits:2});if(p>=10)return p.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});return p.toLocaleString(undefined,{minimumFractionDigits:5,maximumFractionDigits:5});}
+function marketTrend(x){const pct=Number(x.day_change_percent);const dir=(x.direction||"").toUpperCase();if(Number.isFinite(pct)){if(pct>0)return{cls:"up",icon:"↑",text:`+${pct.toFixed(2)}%`};if(pct<0)return{cls:"down",icon:"↓",text:`${pct.toFixed(2)}%`};return{cls:"flat",icon:"→",text:"0.00%"}}if(dir==="UP")return{cls:"up",icon:"↑",text:"UP"};if(dir==="DOWN")return{cls:"down",icon:"↓",text:"DOWN"};return{cls:"flat",icon:"→",text:"FLAT"}}
+function marketState(x){if(x.state==="CACHED"){const age=Math.round(x.cache_age_seconds??0);return `<span class="market-state cached">CACHED · ${age}s</span>`}return '<span class="market-state live">LIVE</span>'}
+function eventImpactClass(x){const impact=(x.impact||"").toUpperCase();return impact==="HIGH"?"high":impact==="MEDIUM"?"medium":"low"}
+function renderPulse(d){
+ pe("#pulse-system",d.system?.status||"UNKNOWN");pe("#pulse-updated",d.updated_at?new Date(d.updated_at).toLocaleTimeString():"");
+ const m=document.querySelector("#pulse-markets"),ev=document.querySelector("#pulse-events"),a=document.querySelector("#pulse-activity");
+ if(m){const xs=d.markets||[];m.innerHTML=xs.length?xs.map(x=>{const tr=marketTrend(x);return `<div class="pulse-item"><div class="pulse-item-top"><small>${x.symbol}</small>${marketState(x)}</div><div class="pulse-price-row"><strong>${fmtPrice(x)}</strong><span class="market-trend ${tr.cls}">${tr.icon} ${tr.text}</span></div><div class="pulse-source">${x.source||""}</div></div>`}).join(""):'<div class="pulse-empty">Live market feed is not connected yet.</div>'}
+ if(ev){const xs=d.events||[];ev.innerHTML=xs.length?xs.map(x=>`<div class="pulse-event"><span class="impact-dot ${eventImpactClass(x)}"></span><div class="event-main"><div class="event-title-row"><strong>${x.title}</strong><b>${(x.impact||"").toUpperCase()}</b></div><small>${x.currency||""} · ${x.time||""}</small></div><em>${x.reaction||"Monitoring"}</em></div>`).join(""):'<div class="pulse-empty">No verified live event feed connected.</div>'}
+ if(a){const xs=d.activity||[];a.innerHTML=xs.length?xs.map(x=>`<span>${x.label}<small>${x.value}</small></span>`).join(""):'<span>Platform telemetry<small>Waiting for verified data</small></span>'}
+}
+async function refreshPulse(){try{const r=await fetch("/api/public/live-pulse",{cache:"no-store"});if(!r.ok)throw 0;renderPulse(await r.json())}catch(e){pe("#pulse-system","UNAVAILABLE");pe("#pulse-updated","Live feed unavailable")}}
+refreshPulse();setInterval(refreshPulse,15000);

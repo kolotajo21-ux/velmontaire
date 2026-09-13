@@ -1,0 +1,58 @@
+VELMONTAIRE M1 IFVG-FVG IMMEDIATE SCALPING
+
+SYMBOLS:
+NAS100 and GER40.
+
+TIMEFRAMES:
+D1 and H4 are visual directional context only. Begin POI analysis on H1,
+then refine it on M30 and M15. Execute entries on M1.
+
+HTF CONTEXT:
+Use either interaction with a direction-compatible H1, M30, or M15 Fair
+Value Gap, or a sweep of significant fractal/session liquidity. A sweep of a
+high provides bearish context. A sweep of a low provides bullish context.
+D1/H4 context is informational and is not a separate algorithmic blocker.
+
+TRADING WINDOW:
+New entries are allowed only from 16:30 until 18:00 Europe/Kyiv. This is a
+hard entry filter. A position opened before 18:00 remains open until Stop Loss
+or Take Profit.
+
+ENTRY MODEL:
+Both LONG and SHORT entries are allowed. MARKET orders only.
+After valid HTF context, an impulse M1 FVG must invert by a candle close beyond
+its far boundary, creating an IFVG in the intended direction. An impulse FVG
+has a direction-compatible middle candle whose real body is larger than the
+real bodies of both neighbouring candles. Within the next three closed M1
+candles, a new impulse FVG in the intended direction must form completely
+inside the IFVG price boundaries. The IFVG and new FVG cannot be created by
+the same candle. Enter MARKET immediately after the candle that completes the
+new directional FVG closes; in causal bar simulation this fills at the next
+M1 candle open. Do not wait for a retest, wick rejection, or engulfing
+confirmation.
+
+STOP LOSS:
+Stop Loss is STRUCTURE. Place it beyond the nearest valid M1 invalidation zone
+on the protective side of the entry: a confirmed swing low/high, a compatible
+Order Block, or the IFVG. The new entry FVG is a trigger and is never itself a
+Stop Loss reference. Use the nearest valid boundary and do not reduce the
+structural invalidation distance.
+
+TAKE PROFIT:
+Risk reward is 1.0. Take Profit is exactly 1R from the actual entry and Stop
+Loss distance.
+
+FIRST PROBLEM AREA:
+Before accepting the fixed 1R target, inspect the nearest opposing swing,
+Order Block, FVG, or IFVG between the actual entry and Take Profit. It may be
+traded through only when the stored H1/M30/M15 context direction matches the
+trade and there is no fresh opposing H1/M30/M15 FVG or Order Block before the
+1R target. Otherwise reject the trade because the required 1:1 is obstructed.
+
+RISK:
+Risk exactly 1.0% of account balance per trade using BALANCE_PERCENT sizing.
+Maximum open positions: 2. Maximum open positions per symbol: 1. Maximum one
+completed entry per Europe/Kyiv trading day per symbol. With NAS100 and GER40,
+the planned combined daily risk is at most 2%.
+
+Only when every required condition passes is a trade allowed.

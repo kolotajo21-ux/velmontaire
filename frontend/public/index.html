@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VELMONTAIRE — Build. Validate. Execute.</title>
+<meta name="description" content="Systematic trading infrastructure for strategy building, backtesting, prop compliance and controlled execution.">
+<link rel="stylesheet" href="/frontend/public/styles.css">
+</head>
+<body>
+<div class="topline">
+  <div>★ <strong data-i18n="topline.strong">Systematic trading infrastructure.</strong> <span data-i18n="topline.copy">Built for traders who think in rules.</span></div>
+  <div class="topline-right"><span class="status-dot"></span> <span data-i18n="topline.status">All Systems Operational</span> <a href="/docs" data-i18n="nav.docs">Docs</a><a href="/pricing" data-i18n="nav.pricing">Pricing</a><a href="/support" data-i18n="nav.support">Support</a></div>
+</div>
+
+<header class="nav">
+  <a class="brand" href="/">
+    <span class="logo-mark"><span>M</span></span>
+    <span>VELMONTAIRE</span>
+  </a>
+  <nav class="navlinks">
+    <a href="/product" data-i18n="nav.product">Product</a>
+    <a href="/workflow" data-i18n="nav.workflow">Workflow</a>
+    <a href="/controls" data-i18n="nav.controls">Controls</a>
+    <a href="/safety" data-i18n="nav.safety">Safety</a>
+    <a href="/pricing" data-i18n="nav.pricing">Pricing</a>
+    <a href="/resources" data-i18n="nav.resources">Resources</a>
+  </nav>
+  <div class="nav-actions">
+    <div class="language-switcher" id="language-switcher">
+      <button class="language-button" id="language-button" type="button" aria-haspopup="true" aria-expanded="false">
+        <span class="language-globe">◎</span>
+        <span id="language-current">EN</span>
+        <span class="language-chevron">⌄</span>
+      </button>
+      <div class="language-menu" id="language-menu" hidden>
+        <button type="button" data-language="en"><span>EN</span><b>English</b></button>
+        <button type="button" data-language="ru"><span>RU</span><b>Русский</b></button>
+        <button type="button" data-language="uk"><span>UA</span><b>Українська</b></button>
+      </div>
+    </div>
+    <a class="nav-signin" href="/login" data-i18n="nav.signin" data-i18n="final.signin">SIGN IN</a>
+    <a class="btn gold nav-primary" href="/register"><span data-i18n="nav.start" data-i18n="final.start">START BUILDING</span> <span>→</span></a>
+  </div>
+</header>
+
+<main>
+<section id="product" class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow"><span></span><span data-i18n="hero.kicker">SYSTEMATIC TRADING INFRASTRUCTURE</span></div>
+    <h1 data-i18n-html="hero.title">Your trading logic,<br><em>made executable.</em></h1>
+    <p data-i18n="hero.copy">Describe a strategy in plain language. VELMONTAIRE converts it into structured controls, validates every rule, and moves it through a production-grade pipeline.</p>
+    <div class="hero-actions hero-actions-v2">
+      <a class="btn gold big hero-primary" href="/register"><span data-i18n="hero.start">START BUILDING YOUR STRATEGY</span> <span>→</span></a>
+      <a class="btn ghost big hero-pricing" href="/pricing"><span data-i18n="hero.plans">VIEW PLANS</span></a>
+      <a class="hero-text-link" href="/workflow"><span data-i18n="hero.workflow">See how it works</span> <span>↓</span></a>
+    </div>
+    <div class="trust-grid">
+      <div><b>◈</b><span><strong data-i18n="trust.safety.title">Safety First</strong><small data-i18n="trust.safety.copy">Hard risk & compliance</small></span></div>
+      <div><b>▣</b><span><strong data-i18n="trust.control.title">Non-Custodial</strong><small data-i18n="trust.control.copy">You keep control</small></span></div>
+      <div><b>ϟ</b><span><strong data-i18n="trust.production.title">Production Grade</strong><small data-i18n="trust.production.copy">Tested. Verified. Reliable</small></span></div>
+      <div><b>◎</b><span><strong data-i18n="trust.traders.title">For Serious Traders</strong><small data-i18n="trust.traders.copy">Rule-driven infrastructure</small></span></div>
+    </div>
+  </div>
+
+  <div class="dashboard-preview">
+    <aside class="mini-side">
+      <span class="logo-mark small"><span>M</span></span>
+      <i class="active">▦</i><i>▤</i><i>⌁</i><i>◇</i><i>♧</i><i>◯</i><i>⚙</i>
+    </aside>
+    <div class="preview-main">
+      <div class="preview-head">
+        <div><h2>Dashboard</h2><small>Overview</small></div>
+        <div class="preview-actions"><span>🔔 3</span><span class="chip">PAPER⌄</span><span class="chip good">ALL SYSTEMS OK</span></div>
+      </div>
+      <div class="metric-row">
+        <div><small>Equity</small><strong>$5,000.00</strong><em>0.00 (0.00%)</em></div>
+        <div><small>Win Rate</small><strong>54.2%</strong><em>+2.1%</em></div>
+        <div><small>Profit Factor</small><strong>1.42</strong><em>+0.18</em></div>
+        <div><small>Open Risk</small><strong>0.35%</strong><em>Within limits</em></div>
+      </div>
+      <div class="preview-grid">
+        <div class="chart-card">
+          <div class="card-head"><span>Equity Curve</span><span class="chip">7D⌄</span></div>
+          <svg viewBox="0 0 640 300" role="img" aria-label="Equity curve">
+            <g class="gridlines"><line x1="40" y1="45" x2="610" y2="45"/><line x1="40" y1="115" x2="610" y2="115"/><line x1="40" y1="185" x2="610" y2="185"/><line x1="40" y1="255" x2="610" y2="255"/></g>
+            <polyline class="curve" points="55,235 80,215 105,178 135,195 165,188 200,205 230,165 255,118 280,140 310,112 340,160 370,175 405,145 435,105 465,120 495,86 525,100 555,68 590,55"/>
+            <circle cx="590" cy="55" r="5"/>
+          </svg>
+          <div class="axis"><span>Jun 1</span><span>Jun 8</span><span>Jun 15</span><span>Jun 22</span><span>Jun 29</span></div>
+        </div>
+        <div class="activity-card">
+          <div class="card-head">Recent Activity</div>
+          <div class="activity"><b>✓</b><span><strong>Backtest Completed</strong><small>XAUUSD · H1</small></span><time>13m ago</time></div>
+          <div class="activity"><b>✓</b><span><strong>Strategy Compiled</strong><small>Mean Reversion v2</small></span><time>27m ago</time></div>
+          <div class="activity"><b>✓</b><span><strong>Rules Validated</strong><small>All rules passed</small></span><time>35m ago</time></div>
+          <a class="viewall" href="/dashboard">View all activity →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="live-pulse" class="live-pulse">
+<div class="pulse-head"><div class="pulse-title"><span class="pulse-live-dot"></span>VELMONTAIRE LIVE PULSE</div><div class="pulse-meta"><span id="pulse-updated">Connecting...</span><span>System: <strong id="pulse-system">CHECKING</strong></span></div></div>
+<div class="pulse-body"><div class="pulse-col"><div class="pulse-label">Live Markets</div><div id="pulse-markets"><div class="pulse-empty">Connecting to verified feed...</div></div></div><div class="pulse-col"><div class="pulse-label">Market Events + Compliance Reaction</div><div id="pulse-events"><div class="pulse-empty">Connecting to verified event feed...</div></div></div><div class="pulse-col"><div class="pulse-label">Platform Activity</div><div id="pulse-activity"><span>Telemetry<small>Connecting...</small></span></div></div></div>
+</section>
+<section id="workflow" class="workflow">
+  <div class="section-label"><span></span data-i18n="workflow.kicker">FROM IDEA TO EXECUTION<span></span></div>
+  <div class="steps">
+    <article><b>□</b><h3 data-i18n="workflow.describe.title">1. Describe</h3><p data-i18n="workflow.describe.copy">Write your strategy in natural language.</p></article>
+    <i>→</i>
+    <article><b>&lt;/&gt;</b><h3 data-i18n="workflow.compile.title">2. Compile</h3><p data-i18n="workflow.compile.copy">We convert it into structured controls.</p></article>
+    <i>→</i>
+    <article><b>◇</b><h3 data-i18n="workflow.validate.title">3. Validate</h3><p data-i18n="workflow.validate.copy">Every rule is checked for safety & logic.</p></article>
+    <i>→</i>
+    <article><b>▥</b><h3 data-i18n="workflow.backtest.title">4. Backtest</h3><p data-i18n="workflow.backtest.copy">Test across data with full reporting.</p></article>
+    <i>→</i>
+    <article><b>▷</b><h3 data-i18n="workflow.simulate.title">5. Simulate</h3><p data-i18n="workflow.simulate.copy">Run in PAPER before real money.</p></article>
+    <i>→</i>
+    <article><b>⌾</b><h3 data-i18n="workflow.execute.title">6. Execute</h3><p data-i18n="workflow.execute.copy">Go LIVE with confidence. Rules always enforced.</p></article>
+  </div>
+</section>
+
+<section id="safety" class="safety-strip">
+  <div><b>✪</b><span><strong>SAFETY FIRST</strong><small>Compliance by design</small></span></div>
+  <div><strong>100%</strong><small>Non-custodial</small></div>
+  <div><strong>ZERO</strong><small>Direct broker access</small></div>
+  <div><strong>24/7</strong><small>Monitoring & alerts</small></div>
+  <div><strong>BUILT FOR TRADERS</strong><small>Not for hype.</small></div>
+  <a class="btn ghost" href="/workflow">LEARN MORE →</a>
+</section>
+
+<section id="controls" class="market-fit section-shell">
+<div class="section-kicker" data-i18n="accounts.kicker">ONE SYSTEM / MULTIPLE EXECUTION ENVIRONMENTS</div><div class="section-heading"><h2 data-i18n="accounts.title">Built around the account you trade.</h2><p data-i18n="accounts.copy">Keep strategy logic separate from account-specific constraints. VELMONTAIRE applies the appropriate control layer before execution.</p></div>
+<div class="fit-grid"><article><span>01</span><h3 data-i18n="accounts.personal.title">Personal</h3><p data-i18n="accounts.personal.copy">Build, validate, backtest and run strategies against your own account controls.</p><small data-i18n="accounts.personal.small">Strategy controls / risk limits / paper-live separation</small></article><article><span>02</span><h3 data-i18n="accounts.cfd.title">CFD Prop</h3><p data-i18n="accounts.cfd.copy">Attach verified firm, program, stage and account-size rules to the runtime gate.</p><small data-i18n="accounts.cfd.small">Drawdown / news / consistency / account policy</small></article><article><span>03</span><h3 data-i18n="accounts.futures.title">Futures Prop</h3><p data-i18n="accounts.futures.copy">Use futures-native contract, session and prop-compliance controls without mixing CFD policy.</p><small data-i18n="accounts.futures.small">Contracts / trailing limits / sessions / news rules</small></article></div></section>
+<section id="pricing" class="pricing-plans section-shell"><div class="pricing-intro"><div class="section-kicker" data-i18n="pricing.kicker">PRICING</div><h2 data-i18n="pricing.title">Choose your runtime.</h2><p data-i18n="pricing.copy">Build and validate on Core. Move to Pro for prop controls and live execution. Elite expands operational limits.</p></div><div class="plan-grid"><article class="plan-card"><small>CORE</small><h3>$29<span>/mo</span></h3><p data-i18n="pricing.core.copy">Build, backtest and paper trade.</p><ul><li>3 strategies</li><li>30 backtests / month</li><li>AI Strategy Builder</li><li>Paper trading</li></ul><a class="btn ghost" href="/register?plan=CORE" data-i18n="pricing.core.cta">START CORE</a></article><article class="plan-card featured"><div class="popular" data-i18n="pricing.popular">MOST POPULAR</div><small>PRO</small><h3>$49<span>/mo</span></h3><p data-i18n="pricing.pro.copy">Full workflow for active and prop traders.</p><ul><li>15 strategies</li><li>150 backtests / month</li><li>CFD + Futures Prop</li><li>Live execution</li><li>3 broker connections</li></ul><a class="btn gold" href="/register?plan=PRO" data-i18n="pricing.pro.cta">START PRO</a></article><article class="plan-card"><small>ELITE</small><h3>$89<span>/mo</span></h3><p data-i18n="pricing.elite.copy">Higher limits and priority support.</p><ul><li>50 strategies</li><li>500 backtests / month</li><li>10 broker connections</li><li>10 active live bots</li><li>Priority support</li></ul><a class="btn ghost" href="/register?plan=ELITE" data-i18n="pricing.elite.cta">START ELITE</a></article></div><p class="annual-note" data-i18n="pricing.annual">Annual target pricing: Core $23/mo | Pro $39/mo | Elite $71/mo. Checkout is not enabled yet.</p></section>
+<section id="resources" class="resource-strip section-shell"><div><small data-i18n="resources.product">PRODUCT</small><strong data-i18n="resources.product.copy">From plain-language strategy to controlled runtime.</strong><a href="/workflow" data-i18n="resources.product.cta">Explore workflow →</a></div><div><small data-i18n="resources.safety">SAFETY</small><strong data-i18n="resources.safety.copy">Rules fail closed when required information is unresolved.</strong><a href="/safety" data-i18n="resources.safety.cta">View safeguards →</a></div><div id="support"><small data-i18n="resources.support">SUPPORT</small><strong data-i18n="resources.support.copy">Missing a rule or capability? Submit it from the platform.</strong><a href="/support" data-i18n="resources.support.cta">Open support →</a></div></section>
+<section class="final-cta"><div><div class="section-kicker">VELMONTAIRE</div><h2 data-i18n="final.title">Turn trading rules into infrastructure.</h2><p data-i18n="final.copy">Describe. Compile. Validate. Backtest. Simulate. Execute — with controls preserved through the pipeline.</p></div><div class="final-actions"><a class="btn gold big" href="/register">START BUILDING <span>→</span></a><a class="btn ghost big" href="/login" data-i18n="final.signin">SIGN IN</a></div></section>
+</main>
+<script src="/frontend/public/live_pulse.js"></script>
+<script src="/frontend/public/i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python.analysis.exclude": [
+        "**/backup_v1/**",
+        "**/backup_v2/**",
+        "**/backup_v3/**",
+        "**/backup_v4/**",
+        "**/backup_v5/**",
+        "**/backup_v6/**",
+        "**/backup_v7/**",
+        "**/backup_v8/**",
+        "**/backup_v9/**"
+    ]
+}
