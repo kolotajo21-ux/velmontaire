@@ -1,30 +1,14 @@
-import MetaTrader5 as mt5
+"""
+MT5 connector placeholder for Linux/Render.
 
-print("Подключение к MT5...")
+MetaTrader5 Python package requires a Windows environment with
+the MetaTrader 5 terminal installed. Live MT5 connection is
+therefore disabled in the Render demo.
+"""
 
-connected = mt5.initialize(
-    path=r"C:\Program Files\MetaTrader 5\terminal64.exe",
-    login=109545352,
-    password="!4IaRbWy",
-    server="MetaQuotes-Demo",
-    timeout=120000
-)
-
-if not connected:
-    print("❌ Не удалось подключиться")
-    print("Ошибка:", mt5.last_error())
-    mt5.shutdown()
-    raise SystemExit
-
-print("✅ Подключение успешно!")
-
-account = mt5.account_info()
-
-print("\n===== ИНФОРМАЦИЯ О СЧЕТЕ =====")
-print(f"Логин: {account.login}")
-print(f"Баланс: {account.balance}")
-print(f"Средства: {account.equity}")
-print(f"Сервер: {account.server}")
-print("==============================")
-
-mt5.shutdown()
+def get_mt5_status():
+    return {
+        "connected": False,
+        "mode": "render_demo",
+        "message": "MT5 connection is disabled in the Render demo."
+    }
