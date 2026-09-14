@@ -2,7 +2,13 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
 
-import MetaTrader5 as mt5
+try:
+    import MetaTrader5 as mt5
+    MT5_AVAILABLE = True
+except ImportError:
+    mt5 = None
+    MT5_AVAILABLE = False
+
 import pandas as pd
 
 from generic_backtest.runner import HistoricalFrame
@@ -22,16 +28,20 @@ class MT5HistoricalDataSource:
         "DE40": ("DE40", "GER40", "DAX40"),
     }
 
-    TIMEFRAMES = {
-        "M1": mt5.TIMEFRAME_M1,
-        "M5": mt5.TIMEFRAME_M5,
-        "M15": mt5.TIMEFRAME_M15,
-        "M30": mt5.TIMEFRAME_M30,
-        "H1": mt5.TIMEFRAME_H1,
-        "H4": mt5.TIMEFRAME_H4,
-        "D1": mt5.TIMEFRAME_D1,
-        "W1": mt5.TIMEFRAME_W1,
-    }
+    TIMEFRAMES = (
+        {
+            "M1": mt5.TIMEFRAME_M1,
+            "M5": mt5.TIMEFRAME_M5,
+            "M15": mt5.TIMEFRAME_M15,
+            "M30": mt5.TIMEFRAME_M30,
+            "H1": mt5.TIMEFRAME_H1,
+            "H4": mt5.TIMEFRAME_H4,
+            "D1": mt5.TIMEFRAME_D1,
+            "W1": mt5.TIMEFRAME_W1,
+        }
+        if MT5_AVAILABLE
+        else {}
+    )
 
     TIMEFRAME_SECONDS = {
         "M1": 60,
@@ -240,6 +250,11 @@ class MT5HistoricalDataSource:
         date_from: str | None = None,
         date_to: str | None = None,
     ) -> HistoricalFrame:
+        if not MT5_AVAILABLE:
+            raise RuntimeError(
+                "mt5_unavailable: MT5 is disabled in the Linux/Render demo"
+            )
+
         symbol = str(symbol or "").strip().upper()
         timeframe = str(timeframe or "").strip().upper()
 

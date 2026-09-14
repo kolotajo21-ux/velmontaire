@@ -59,8 +59,8 @@ DATA_DIR = PROJECT_ROOT / "data"
 
 DATABASE_PATH = DATA_DIR / "velmontaire_saas.sqlite3"
 
-HOST = "127.0.0.1"
-PORT = 8787
+HOST = os.environ.get("HOST", "0.0.0.0")
+PORT = int(os.environ.get("PORT", "8787"))
 
 COOKIE_NAME = "velmontaire_session"
 
