@@ -52,7 +52,7 @@ from webapp.public_live_pulse import PublicLivePulse
 # PATHS / CONFIG
 # ============================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parent
 
 FRONTEND_ROOT = PROJECT_ROOT / "frontend"
 DATA_DIR = PROJECT_ROOT / "data"
